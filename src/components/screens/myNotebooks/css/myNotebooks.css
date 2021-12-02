@@ -1,8 +1,12 @@
 .notebookColl {
-    /* min-height: 70vw; */
+    height: max-content;
+    justify-content: space-between !important;
 }
 
 .bookArrange {
     /* background-color: rgba(255, 94, 94, 0.377); */
+    min-height: 68vh;
     justify-content: center;
 }
+
+.mainContent {}

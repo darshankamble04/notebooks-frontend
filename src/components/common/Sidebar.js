@@ -41,10 +41,10 @@ function Sidebar() {
                     <img className="mx-2" src={notesIcon} alt="" />
                     <span>ResetPass</span>
                 </Link>
-                <label className={`sidebarLabel ${location.pathname === '/bookmarks'? 'sidebarLabelSelected':''}`}>
+                <Link to="/allbookmarkednotebooks" className={`sidebarLabel ${location.pathname === '/allbookmarkednotebooks'? 'sidebarLabelSelected':''}`}>
                     <span class="mx-2 material-icons">bookmark</span>
                     <span>Bookmarks</span>
-                </label>
+                </Link>
             </div>
             <div>
                 <label className={`sidebarLabel ${location.pathname === '/contactus'? 'sidebarLabelSelected':''}`}>

@@ -19,8 +19,8 @@ function Login() {
             <Sidebar />
             <div className="d-flex flex-column">
                 <main className="mainContent d-flex flex-column" style={{overflowY:'hidden'}}>
-                    <div className="notebookColl">
-                            <div className="container loginOutline">
+                    <div className="notebookColl d-flex flex-column justify-content-between">
+                            <div className="container loginOutline" style={{minHeight: "72vh"}}>
                                 <form action="#">
                                     <div className="title">Login</div>
                                   
@@ -48,8 +48,8 @@ function Login() {
                                 </form>
                                 <div className="option2">New User? <Link to='/register' className="">Register</Link></div>
                             </div>
-                    </div>
                     <Footer />
+                    </div>
                 </main>
             </div>
         </div>

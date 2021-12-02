@@ -6,12 +6,28 @@ const NotebookState = (props) => {
 
   const initialNotebooks = [];
   const [notebooks, setNotebooks] = useState(initialNotebooks);
-
+  
   
   // Get Notebooks :
   const getNotebooks = async () => {
     // Setloading(true)
     const response = await fetch(`${webUrl}/api/notebooks/fetchallnotebooks`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+      },
+    })
+    const json = await response.json()
+    setNotebooks(json)
+    // Setloading(false)
+  }
+
+  const [BMnotebooks, setBMNotebooks] = useState(initialNotebooks);
+  // Getbookmarked Notebooks :
+  const getBookmarkedNotebooks = async () => {
+    // Setloading(true)
+    const response = await fetch(`${webUrl}/api/notebooks/bookmarkednotebooks/:id`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -45,9 +61,11 @@ const NotebookState = (props) => {
 
   // CHANGE THIS 👉 IMP 
 
-  // const [edata, esetdata] = useState({ enotebookTitle: '', eid: '', enotebookCover: '' })
-  // const [notebookCover, setnotebookCover] = useState(0)
-  // const [notebookTitle, setnotebookTitle] = useState(edata.enotebookTitle)
+  
+  const [eData, setEData] = useState({ enotebookTitle: '', eid: '', enotebookCover: '' })
+  const [notebookCover, setnotebookCover] = useState()
+    const [notebookTitle, setnotebookTitle] = useState("")
+    const [id, setId] = useState("")
 
   // update Notebooks :
   const updateNotebooks = async (e) => {
@@ -64,10 +82,36 @@ const NotebookState = (props) => {
     getNotebooks()
   }
 
+  // add bookmark Notebooks :
+  const addbookmark = async (id) => {
+    // API
+    await fetch(`${webUrl}/api/notebooks/addbookmark/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+      },
+    })
+    getNotebooks()
+  }
+
+  // remove bookmark Notebooks :
+  const removebookmark = async (id) => {
+    // API
+    await fetch(`${webUrl}/api/notebooks/removebookmark/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+      },
+    })
+    getNotebooks()
+  }
+
   // Delete Notebooks :
   const deleteNotebooks = async (id) => {
     // API
-    await fetch(`${webUrl}/api/notebooks//deletenotebook/${id}`, {
+    await fetch(`${webUrl}/api/notebooks/deletenotebook/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +128,7 @@ const NotebookState = (props) => {
 
 
   return (
-    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks,addNotebooks, updateNotebooks, deleteNotebooks}}>
+    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks,addNotebooks, updateNotebooks,eData, setEData, deleteNotebooks,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,addbookmark,removebookmark,getBookmarkedNotebooks}}>
       {props.children}
     </NotebookContext.Provider>
   )

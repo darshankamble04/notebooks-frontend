@@ -12,6 +12,7 @@ import Register from './components/screens/auth/Register';
 import Login from './components/screens/auth/Login';
 import ResetPass from './components/screens/auth/ResetPass';
 import ForgotPass from './components/screens/auth/ForgotPass';
+import AllBookmarkNB from './components/screens/myNotebooks/AllBookmarkNB';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/resetpass" element={<ResetPass />}></Route>
               <Route path="/forgotpass" element={<ForgotPass />}></Route>
+              <Route path="/allbookmarkednotebooks" element={<AllBookmarkNB />}></Route>
 
             </Routes>
           </Router>

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
@@ -7,14 +7,21 @@ import NotebookContext from '../../../../context/NotebookContext'
 function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks,deleteNotebooks } = Context;
+    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark,eData, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId} = Context;
     // const [notebookInfo, setNotebookInfo] = useState({notebookTitle:'',notebookCover:3})
-    const [notebookCover, setnotebookCover] = useState(props.cover)
-    const [notebookTitle, setnotebookTitle] = useState(props.title)
-    const [id, setId] = useState(props.id)
+
+    // const [notebookCover, setnotebookCover] = useState()
+    // const [notebookTitle, setnotebookTitle] = useState("")
     const [isEmpty, setIsEmpty] = useState(false)
 
-
+    const toggleEdit = (data) => {
+        setEData({enotebookTitle:data.notebookCover , eid: data._id, enotebookCover: data.notebookTitle})
+        setnotebookCover(data.notebookCover)
+        setnotebookTitle(data.notebookTitle)
+        setId(data._id)
+        // esetdata({ enotebookTitle: data.notebookTitle, eid: data._id, enotebookCover: data.notebookCover })
+    }
+    
     const submitNotebook = (e) => {
         e.preventDefault()
         // eslint-disable-next-line
@@ -26,11 +33,12 @@ function Notebook(props) {
             setIsEmpty(true)
         }
     }
+    console.log(props.data)
     return (
         <>
             <Link to='/mynotebooks' className="outline ">
                 <img className="spiral" src="https://cdn.classmateshop.co.in/live/Front-Assets/FrontEnd/SPIRAL.svg" alt="" />
-                <div className="inline" style={{ background: `url(${notebookCoverUrl[`${notebookCover}`]})` }}>
+                <div className="inline" style={{ background: `url(${notebookCoverUrl[`${props.cover}`]})` }}>
                     <div className="dots"></div>
                     <div className="NotebookName">
                         <div >{props.title}</div>
@@ -39,12 +47,12 @@ function Notebook(props) {
                         </div>
                     </div>
                     {/* Toggle Bookmark */}
-                    {/* <div className="bookmarked">
+                    <div className={`${props.data.bookmark?"bookmarked":"invisible"}`}>
                         <span className="material-icons">bookmark</span>
-                    </div> */}
+                    </div>
                     <div className="menu d-flex flex-column position-absolute">
-                        <Link data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" to="/mynotebooks" className="material-icons" >edit</Link>
-                        <Link to="/mynotebooks" className="material-icons">bookmark</Link>
+                        <Link onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" to="/mynotebooks" className="material-icons" >edit</Link>
+                        <Link to="/mynotebooks" onClick={() => { props.data.bookmark?removebookmark(props.id) :addbookmark(props.id) }} className="material-icons" style={{color:`${props.data.bookmark?"red":""}`}}>bookmark</Link>
                         <Link to="/mynotebooks" onClick={() => { deleteNotebooks(props.id) }} className="material-icons">delete</Link>
                     </div>
                 </div>
@@ -58,7 +66,7 @@ function Notebook(props) {
                 </div>
                 <div className="offcanvas-body">
                     <div className="mb-1 d-grid inputsN">
-                        <div className="d-flex">
+                        <form className="d-flex">
                             <div className="coverImg selectedImg" style={{ background: `url(${notebookCoverUrl[`${notebookCover}`]})` }}></div>
                             <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
                                 <label className="form-label" id="notebookname">Notebook Name</label>
@@ -66,7 +74,7 @@ function Notebook(props) {
                                 <div style={{ color: "red" }} className={`form-text ${isEmpty ? "visible" : "invisible"}`}>Notebook name cannot be blank </div>
                                 <button onClick={(e) => { submitNotebook(e,props.id) }} className="addNotebookbtn">Edit Notebook</button>
                             </div>
-                        </div>
+                        </form>
                         <label className="form-label" style={{ width: 'max-content' }}>Notebook Cover</label>
                     </div>
 

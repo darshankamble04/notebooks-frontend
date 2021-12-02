@@ -8,7 +8,7 @@ function CreateNotebook() {
     const Context = useContext(NotebookContext)
     const { addNotebooks } = Context;
     // const [notebookInfo, setNotebookInfo] = useState({notebookTitle:'',notebookCover:3})
-    const [notebookCover, setnotebookCover] = useState(0)
+    const [notebookCover, setnotebookCover] = useState(Math.round(18 * Math.random()))
     const [notebookTitle, setnotebookTitle] = useState("")
     const [isEmpty, setIsEmpty] = useState(false)
 
@@ -42,7 +42,7 @@ function CreateNotebook() {
                 </div>
                 <div className="offcanvas-body">
                     <div className="mb-1 d-grid inputsN">
-                        <div className="d-flex">
+                        <form className="d-flex">
                             <div className="coverImg selectedImg" style={{ background: `url(${notebookCoverUrl[`${notebookCover}`]})` }}></div>
                             <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
                                 <label className="form-label" id="notebookname">Notebook Name</label>
@@ -50,7 +50,7 @@ function CreateNotebook() {
                                 <div style={{ color: "red" }} className={`form-text ${isEmpty ? "visible" : "invisible"}`}>Notebook name cannot be blank </div>
                                 <button onClick={(e) => { submitNotebook(e) }} className="addNotebookbtn">Add Notebook</button>
                             </div>
-                        </div>
+                        </form>
                         <label className="form-label" style={{ width: 'max-content' }}>Notebook Cover</label>
                     </div>
 
