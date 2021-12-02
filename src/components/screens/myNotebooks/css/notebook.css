@@ -7,21 +7,24 @@
     margin: 20px;
     cursor: pointer;
     border-radius: 14px 13px 21px 0px;
-    /* box-shadow: 3px 3px 3px 1px rgb(131 131 131); */
     filter: drop-shadow(2px 4px 6px rgb(99, 99, 99));
+    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
 }
 
 .outline:hover {
-    transition: all 0.8s ease-out;
+    transition: bottom 0.8s ease-out;
     transition-property: all;
-    /* filter: none; */
-    bottom: 1.5px;
+    filter: none;
+    box-shadow: none;
+    bottom: 3.5px;
+    color: red !important;
     /* opacity: 1; */
 }
 
 .outline .inline:hover {
-    /* filter: contrast(1.1); */
-    /* box-shadow: inset -20px -3px 20px 5px #000000bd; */
+    color: red !important;
+    filter: contrast(1.1);
+    box-shadow: inset -20px -3px 20px 5px #000000bd;
 }
 
 .outline .inline {
@@ -33,7 +36,7 @@
     /* box-shadow: inset -15px 0 20px 5px #00000018, 1px 1px 3px 0px #fff; */
     height: 99%;
     cursor: pointer;
-    border-radius: 0px 12px 12px 0px;
+    border-radius: 4px 12px 12px 0px;
     background: rgb(250, 212, 0);
     background-size: cover !important;
 }
@@ -52,10 +55,30 @@
     bottom: 19px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 5px black;
-    left: 13px;
+    left: 0px;
     height: 55px;
     padding: 5px;
-    width: 92%;
+    width: 101%;
+    padding-left: 16px;
+}
+
+.bookmarked {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    width: 28px;
+    height: 60px;
+    background-color: #760000;
+}
+
+.bookmarked .material-icons {
+    color: #760000;
+    position: relative;
+    top: 25px;
+    left: -9.5px;
+    width: 0px;
+    background-color: #760000;
+    font-size: 2.9rem;
 }
 
 .outline .menu {

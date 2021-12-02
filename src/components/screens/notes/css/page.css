@@ -1,0 +1,46 @@
+.pageBody {
+    position: relative;
+    padding: 5px 5px 35px 5px;
+    margin: 15px;
+    border: 0.4px solid rgb(109, 109, 109);
+    border-top: 5px solid #212529;
+    width: 270px;
+    height: 232px;
+    background-color: #21252957;
+    transition: transform .2s;
+    z-index: 1;
+    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
+}
+
+.pageBody:hover {
+    text-shadow: 1px 0px 0px #000;
+    filter: drop-shadow(2px 4px 6px rgb(114, 114, 114));
+    z-index: 10;
+    transform: scale(1.1);
+}
+
+.content {
+    overflow-y: hidden;
+    height: 95.5%;
+}
+
+.updatedDate {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+
+.operations {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+}
+
+.operations .material-icons {
+    color: rgb(92, 88, 88);
+    cursor: pointer;
+}
+
+.operations .material-icons:hover {
+    color: #000;
+}

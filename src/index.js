@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import NotebookState from './context/NotebookState';
 
 ReactDOM.render(
   <React.StrictMode>
+    <NotebookState>
     <App />
+    </NotebookState>
   </React.StrictMode>,
   document.getElementById('root')
 );

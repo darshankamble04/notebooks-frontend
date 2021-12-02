@@ -5,22 +5,32 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 import MyNotebooks from './components/screens/myNotebooks/MyNotebooks';
+import Notes from './components/screens/notes/Notes';
+import Register from './components/screens/auth/Register';
+import Login from './components/screens/auth/Login';
+import ResetPass from './components/screens/auth/ResetPass';
+import ForgotPass from './components/screens/auth/ForgotPass';
 
 function App() {
   return (
     <>
-     <Router>
-        <Routes>
+        
+          <Router>
+            <Routes>
 
-          <Route path="/" element={ <Home />}></Route>
-          <Route path="/mynotebooks" element={ <MyNotebooks />}></Route>
-          
-        </Routes>
-     </Router>
-    
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/mynotebooks" element={<MyNotebooks />}></Route>
+              <Route path="/notes" element={<Notes />}></Route>
+              <Route path="/register" element={<Register />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/resetpass" element={<ResetPass />}></Route>
+              <Route path="/forgotpass" element={<ForgotPass />}></Route>
+
+            </Routes>
+          </Router>
+
     </>
   );
 }
