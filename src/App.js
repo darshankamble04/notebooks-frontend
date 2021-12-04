@@ -13,6 +13,7 @@ import Login from './components/screens/auth/Login';
 import ResetPass from './components/screens/auth/ResetPass';
 import ForgotPass from './components/screens/auth/ForgotPass';
 import AllBookmarkNB from './components/screens/myNotebooks/AllBookmarkNB';
+import AllNotes from './components/screens/notes/AllNotes';
 
 function App() {
   return (
@@ -21,14 +22,15 @@ function App() {
           <Router>
             <Routes>
 
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/mynotebooks" element={<MyNotebooks />}></Route>
-              <Route path="/notes" element={<Notes />}></Route>
-              <Route path="/register" element={<Register />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/resetpass" element={<ResetPass />}></Route>
-              <Route path="/forgotpass" element={<ForgotPass />}></Route>
-              <Route path="/allbookmarkednotebooks" element={<AllBookmarkNB />}></Route>
+              <Route Exact path="/" element={<Home />}></Route>
+              <Route Exact path="/mynotebooks" element={<MyNotebooks />}></Route>
+              <Route Exact path="/mynotebooks/:id/:name" element={<Notes />}></Route>
+              <Route Exact path="/allnotes" element={<AllNotes />}></Route>
+              <Route Exact path="/register" element={<Register />}></Route>
+              <Route Exact path="/login" element={<Login />}></Route>
+              <Route Exact path="/resetpass" element={<ResetPass />}></Route>
+              <Route Exact path="/forgotpass" element={<ForgotPass />}></Route>
+              <Route Exact path="/allbookmarkednotebooks" element={<AllBookmarkNB />}></Route>
 
             </Routes>
           </Router>

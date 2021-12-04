@@ -44,3 +44,71 @@
 .operations .material-icons:hover {
     color: #000;
 }
+
+.pageOuter {
+    width: 282px !important;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    background-color: red;
+    margin: 15px;
+    transition: all 0.5s cubic-bezier(.22, .61, .36, 1);
+    border: 2px solid rgb(194, 194, 194) !important;
+}
+
+.ql-snow {
+    /* font-size: 1.2rem !important; */
+}
+
+.ql-snow .ql-tooltip {
+    margin-top: 0px !important;
+    left: 296.35px !important;
+    top: -111px !important;
+}
+
+.pageOuter .ql-editor {
+    line-height: 1.42;
+    padding: 5px 0px !important;
+}
+
+.ql-container {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem;
+}
+
+.pageOuter:hover {
+    border: 2px solid rgb(73, 73, 73) !important;
+    text-shadow: 1px 0 0 black;
+}
+
+.notesArrange {
+    margin: 32px 0 0 3.5rem !important;
+}
+
+.optMenu {
+    right: 8px;
+    bottom: 14px;
+}
+
+.optMenu .material-icons {
+    margin-left: 3px;
+    cursor: pointer;
+    color: #000;
+    opacity: 0.5;
+    transition: opacity 0.5s cubic-bezier(.22, .61, .36, 1);
+}
+
+.material-icons {
+    cursor: pointer;
+}
+
+.optMenu .material-icons:hover {
+    opacity: 1;
+}
+
+.costomModal {
+    top: 3% !important;
+    text-shadow: none !important;
+    min-width: 60vw !important;
+}

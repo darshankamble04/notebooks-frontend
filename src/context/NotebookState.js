@@ -23,7 +23,6 @@ const NotebookState = (props) => {
     // Setloading(false)
   }
 
-  const [BMnotebooks, setBMNotebooks] = useState(initialNotebooks);
   // Getbookmarked Notebooks :
   const getBookmarkedNotebooks = async () => {
     // Setloading(true)

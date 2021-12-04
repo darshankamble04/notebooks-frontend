@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import NotebookState from './context/NotebookState';
+import NoteState from './context/NoteState';
 
 ReactDOM.render(
   <React.StrictMode>
     <NotebookState>
-    <App />
+      <NoteState>
+        <App />
+      </NoteState>
     </NotebookState>
   </React.StrictMode>,
   document.getElementById('root')

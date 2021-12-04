@@ -25,7 +25,7 @@ function Sidebar() {
                     <img className="mx-2" src={notebookIcon} alt="" />
                     <span >Notebooks</span>
                 </Link>
-                <Link to='/notes' className={`sidebarLabel ${location.pathname === '/notes'? 'sidebarLabelSelected':''}`}>
+                <Link to='/allnotes' className={`sidebarLabel ${location.pathname === '/allnotes'? 'sidebarLabelSelected':''}`}>
                     <img className="mx-2" src={notesIcon} alt="" />
                     <span>All Notes</span>
                 </Link>

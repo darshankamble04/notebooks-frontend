@@ -5,9 +5,6 @@ import NoteContext from './NoteContext'
 
 function NoteState(props) {
 
-    // NOTEBOOK : CONTEXT_API
-    const Context = useContext(NotebookContext)
-    const {edata} = Context
     // BACKEND HOSTED URL :
     const webUrl = process.env.REACT_APP_WebUrl;
 
@@ -37,7 +34,11 @@ function NoteState(props) {
     // API
     const getNotes = async () => {
         Setloading(true)
-        const response = await fetch(`${webUrl}/api/notes/${edata.eid}/fetchallnotes`, {
+        let pathname = window.location.pathname;
+        pathname = pathname.split('/')
+
+        console.log(pathname[2])
+        const response = await fetch(`${webUrl}/api/notes/${pathname[2]}/fetchallnotes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,19 +50,23 @@ function NoteState(props) {
         Setloading(false)
 
     }
+    const [color, setColor] = useState("blue")
 
     // ADD NOTE :~
     const addNote = async (e) => {
         const { title, description } = e;
-
+        let pathname = window.location.pathname;
+        pathname = pathname.split('/')
+        let date = new Date()
+        console.log(date)
         // API
-         await fetch(`${webUrl}/api/notes/${edata.eid}/addnote`, {
+         await fetch(`${webUrl}/api/notes/${pathname[2]}/addnote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
             },
-            body: JSON.stringify({ title, description }),
+            body: JSON.stringify({ title, description,color,date }),
         })
         getNotes()
         getuserNotes()
@@ -88,21 +93,7 @@ function NoteState(props) {
 
     // EDIT NOTE  :~
     const editNote = async (e) => {
-        // let { eid, etitle, edescription, etag } = updatedNote
-        // // CLIENT SIDE SCRIPTING
-        // for (let i = 0; i < notes.length; i++) {
-        //     const note = notes[i];
-        //     if (note._id === eid) {
-        //         note.title = etitle;
-        //         note.description = edescription;
-        //         note.tag = etag;
-        //     }
-        // }
-
-        // setEditNoteVal({ title: etitle, description: edescription, tag: etag })
-        
         const { title, description,id} = e
-
         // API
         await fetch(`${webUrl}/api/notes/updatenote/${id}`, {
             method: 'PUT',
@@ -110,7 +101,7 @@ function NoteState(props) {
                 'Content-Type': 'application/json',
                 "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
             },
-            body: JSON.stringify({ title, description}),
+            body: JSON.stringify({ title, description,color}),
         })
         getNotes()
         getuserNotes()
@@ -128,7 +119,7 @@ function NoteState(props) {
 
 
     return (
-        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,loading, Setloading,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle}}>
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,loading, Setloading,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor}}>
             {props.children}
         </NoteContext.Provider>
     )

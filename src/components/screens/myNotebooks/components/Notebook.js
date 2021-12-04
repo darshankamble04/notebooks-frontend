@@ -8,10 +8,6 @@ function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
     const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark,eData, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId} = Context;
-    // const [notebookInfo, setNotebookInfo] = useState({notebookTitle:'',notebookCover:3})
-
-    // const [notebookCover, setnotebookCover] = useState()
-    // const [notebookTitle, setnotebookTitle] = useState("")
     const [isEmpty, setIsEmpty] = useState(false)
 
     const toggleEdit = (data) => {
@@ -19,7 +15,6 @@ function Notebook(props) {
         setnotebookCover(data.notebookCover)
         setnotebookTitle(data.notebookTitle)
         setId(data._id)
-        // esetdata({ enotebookTitle: data.notebookTitle, eid: data._id, enotebookCover: data.notebookCover })
     }
     
     const submitNotebook = (e) => {
@@ -33,10 +28,9 @@ function Notebook(props) {
             setIsEmpty(true)
         }
     }
-    console.log(props.data)
     return (
         <>
-            <Link to='/mynotebooks' className="outline ">
+            <Link onClick={()=>{toggleEdit(props.data)}} to={`/mynotebooks/${props.id}/${props.title}`} className="outline ">
                 <img className="spiral" src="https://cdn.classmateshop.co.in/live/Front-Assets/FrontEnd/SPIRAL.svg" alt="" />
                 <div className="inline" style={{ background: `url(${notebookCoverUrl[`${props.cover}`]})` }}>
                     <div className="dots"></div>
@@ -47,8 +41,9 @@ function Notebook(props) {
                         </div>
                     </div>
                     {/* Toggle Bookmark */}
-                    <div className={`${props.data.bookmark?"bookmarked":"invisible"}`}>
-                        <span className="material-icons">bookmark</span>
+                    {/* style={{animation:`"slowDown1 600ms linear 1 forwards" : "slowDown1 600ms linear 1 reverse"}`}}  */}
+                    <div className={`${props.data.bookmark?"bookmarked slowDown1":"invisible"}`}>
+                        <span className={`material-icons ${props.data.bookmark?"bookmarked slowDown2":"invisible"}`}>bookmark</span>
                     </div>
                     <div className="menu d-flex flex-column position-absolute">
                         <Link onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" to="/mynotebooks" className="material-icons" >edit</Link>
