@@ -21,6 +21,8 @@ function Sidebar() {
                     <span class="mx-2 material-icons">home</span>
                     <span className="">Home</span>
                 </Link>
+{localStorage.getItem('token')?
+            <div className="d-flex flex-column">
                 <Link to="/mynotebooks" className={`sidebarLabel ${location.pathname === '/mynotebooks'? 'sidebarLabelSelected':''}`}>
                     <img className="mx-2" src={notebookIcon} alt="" />
                     <span >Notebooks</span>
@@ -29,6 +31,13 @@ function Sidebar() {
                     <img className="mx-2" src={notesIcon} alt="" />
                     <span>All Notes</span>
                 </Link>
+                <Link to="/allbookmarkednotebooks" className={`sidebarLabel ${location.pathname === '/allbookmarkednotebooks'? 'sidebarLabelSelected':''}`}>
+                    <span class="mx-2 material-icons">bookmark</span>
+                    <span>Bookmarks</span>
+                </Link>
+            </div>
+:
+            <div className="d-flex flex-column">
                 <Link to='/register' className={`sidebarLabel ${location.pathname === '/register'? 'sidebarLabelSelected':''}`}>
                     <img className="mx-2" src={notesIcon} alt="" />
                     <span>Register</span>
@@ -37,14 +46,8 @@ function Sidebar() {
                     <img className="mx-2" src={notesIcon} alt="" />
                     <span>Login</span>
                 </Link>
-                <Link to='/resetpass' className={`sidebarLabel ${location.pathname === '/resetpass'? 'sidebarLabelSelected':''}`}>
-                    <img className="mx-2" src={notesIcon} alt="" />
-                    <span>ResetPass</span>
-                </Link>
-                <Link to="/allbookmarkednotebooks" className={`sidebarLabel ${location.pathname === '/allbookmarkednotebooks'? 'sidebarLabelSelected':''}`}>
-                    <span class="mx-2 material-icons">bookmark</span>
-                    <span>Bookmarks</span>
-                </Link>
+            </div>
+            }
             </div>
             <div>
                 <label className={`sidebarLabel ${location.pathname === '/contactus'? 'sidebarLabelSelected':''}`}>

@@ -6,7 +6,6 @@ import Page from './Page'
 function NotesColl() {
     const Context = useContext(NoteContext)
     const {notes,getNotes} = Context
- 
     useEffect(() => {
         getNotes()
         // eslint-disable-next-line

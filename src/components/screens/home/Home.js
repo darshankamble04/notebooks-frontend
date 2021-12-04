@@ -1,4 +1,5 @@
 import React from 'react'
+import Alert from '../../common/Alert'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
@@ -15,6 +16,7 @@ function Home() {
                 <Sidebar />
                 <div className="d-flex flex-column">
                     {/* <PageHeader /> */}
+                    <Alert/>
                     <main className="mainContent d-flex flex-column">
                         <div>
                             <section id="box" class="d-flex flex-column justify-content-end align-items-center">

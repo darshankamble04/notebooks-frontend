@@ -5,7 +5,7 @@ import '../css/createPage.css'
 
 function Page(props) {
     const Context = useContext(NoteContext)
-    const { NoteTitle, editNote,color, setColor,editNoteVal,NoteDescription,deleteNote, setNoteDescription, setEditNoteVal, setNoteTitle } = Context
+    const { NoteTitle, editNote,color, setColor,show , setShow,editNoteVal,NoteDescription,deleteNote, setNoteDescription, setEditNoteVal, setNoteTitle } = Context
     let date = new Date(props.date)
     date = date.toString()
     let arr = date.split(" ")
@@ -28,8 +28,10 @@ function Page(props) {
         if (!NoteTitle.length == 0) {
             const { id } = editNoteVal
             editNote({ title: NoteTitle, description: NoteDescription, id })
+            setShow(false)
             closeRef.current.click()
             setIsEmpty(false)
+            
         } else {
             setIsEmpty(true)
         }
@@ -47,9 +49,7 @@ function Page(props) {
                     <span className="material-icons" onClick={() => { deleteNote(props.id) }}>delete</span>
                 </div>
                 <div className="updatedDate">
-                    {month.toString()}
-                    {" "}
-                    {day.toString()}
+                    {month}{" "}{day}
                 </div>
             </div>
             <div className="modal fade" style={{ overflowY: "hidden" }} id="staticBackdrop01" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -73,16 +73,20 @@ function Page(props) {
 
                             <div className="input-box d-flex">
                                 <input value={NoteTitle} onChange={(e) => { setNoteTitle(e.target.value) }} type="text" className="titletoedit  form-control" placeholder="Untitled" />
-                                <div style={{ backgroundColor: `${color}` }} className="colorBox" ></div>
-                                    <div onClick={()=>{setColor('rgb(255,156,0)')}} style={{ backgroundColor: 'rgb(255,156,0)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(179,181,182)')}} style={{ backgroundColor: 'rgb(179,181,182)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(0,150,168)')}} style={{ backgroundColor: 'rgb(0,150,168)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(212,224,227)')}} style={{ backgroundColor: 'rgb(212,224,227)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('#ff8585e0')}} style={{ backgroundColor: '#ff8585e0' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('#fff')}} style={{ backgroundColor: '#fff' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(255,217,33)')}} style={{ backgroundColor: 'rgb(255,217,33)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(254,128,129)')}} style={{ backgroundColor: 'rgb(254,128,129)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(104,176,50)')}} style={{ backgroundColor: 'rgb(104,176,50)' }} class="dropdown-item colors"></div>
+
+                               <div style={{ backgroundColor: `${color}` }} onClick={()=>{!show?setShow(true):setShow(false)}} className="colorBox" ></div>
+
+    <div className={`${show?'d-flex visible open':'d-flex invisible'}`}>
+            <div onClick={()=>{setShow(false); setColor('rgb(255,156,0)')}} style={{ backgroundColor: 'rgb(255,156,0)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(179,181,182)')}} style={{ backgroundColor: 'rgb(179,181,182)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(0,150,168)')}} style={{ backgroundColor: 'rgb(0,150,168)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(212,224,227)')}} style={{ backgroundColor: 'rgb(212,224,227)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('#ff8585e0')}} style={{ backgroundColor: '#ff8585e0' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('#fff')}} style={{ backgroundColor: '#fff' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(255,217,33)')}} style={{ backgroundColor: 'rgb(255,217,33)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(254,128,129)')}} style={{ backgroundColor: 'rgb(254,128,129)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(104,176,50)')}} style={{ backgroundColor: 'rgb(104,176,50)' }} class="dropdown-item colors"></div>
+    </div>     
                                     
                                 </div>
                             <div className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} style={{ zIndex: '11' }}>

@@ -3,6 +3,8 @@ import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
 import NotebookContext from '../../../../context/NotebookContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Notebook(props) {
     const autoClick = useRef(null)
@@ -22,6 +24,7 @@ function Notebook(props) {
         // eslint-disable-next-line
         if (!notebookTitle.length == 0) {
             updateNotebooks({ notebookTitle, notebookCover, id })
+           
             setnotebookTitle('')
             autoClick.current.click()
         } else {

@@ -28,8 +28,8 @@ function App() {
               <Route Exact path="/allnotes" element={<AllNotes />}></Route>
               <Route Exact path="/register" element={<Register />}></Route>
               <Route Exact path="/login" element={<Login />}></Route>
-              <Route Exact path="/resetpass" element={<ResetPass />}></Route>
-              <Route Exact path="/forgotpass" element={<ForgotPass />}></Route>
+              <Route Exact path="/resetpassword" element={<ResetPass />}></Route>
+              <Route Exact path="/forgotpassword" element={<ForgotPass />}></Route>
               <Route Exact path="/allbookmarkednotebooks" element={<AllBookmarkNB />}></Route>
 
             </Routes>

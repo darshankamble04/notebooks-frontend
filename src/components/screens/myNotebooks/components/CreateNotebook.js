@@ -1,6 +1,9 @@
-import React, {useState, useContext, useRef } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import NotebookContext from '../../../../context/NotebookContext'
+import Alert from '../../../common/Alert'
 import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../css/createNotebook.css'
 
 function CreateNotebook() {
@@ -35,7 +38,7 @@ function CreateNotebook() {
             </div>
 
             <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div className="offcanvas-header">
+                <div className="offcanvas-header">
                     <h5 id="offcanvasRightLabel">Create Notebook</h5>
 
                     <span ref={autoClick} type="button" className="material-icons closeBtn" data-bs-dismiss="offcanvas" aria-label="Close">close</span>
@@ -59,7 +62,17 @@ function CreateNotebook() {
                     </div>
                 </div>
             </div>
-
+            {/* <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            /> */}
         </>
     )
 }

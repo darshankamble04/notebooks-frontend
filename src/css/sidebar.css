@@ -1,6 +1,10 @@
 .sidebar {
     background-color: var(--main-bg-color);
     display: flex;
+    position: relative;
+    top: -4px;
+    padding-top: 4px;
+    z-index: 2;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +46,10 @@
     background-color: rgb(50, 53, 72);
     /* color: rgb(0, 171, 201); */
     color: #00d9ff;
+}
+
+.sidebarLabelSelected:hover {
+    color: #00d9ff !important;
 }
 
 .sidebarLabelSelected::after {

@@ -11,18 +11,46 @@
     box-shadow: 3px 3px 3px 1px rgb(131 131 131);
 }
 
+.outlineForPlaceholder {
+    background-color: rgb(197, 197, 197);
+    position: relative;
+    width: 178px !important;
+    max-width: 178px !important;
+    height: 243px !important;
+    margin: 20px;
+    border-radius: 14px 13px 21px 0px;
+}
+
+.outlineForPlaceholder .NotebookName {
+    background-color: rgb(177, 177, 177);
+    position: absolute;
+    bottom: 19px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px black;
+    left: 0px;
+    height: 55px;
+    padding: 5px;
+    width: 100%;
+    padding-left: 16px;
+}
+
+@keyframes cardUp {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 3.5;
+    }
+}
+
 .outline:hover {
-    transition: bottom 0.8s ease-out;
-    transition-property: all;
     filter: none;
     box-shadow: none;
-    bottom: 3.5px;
-    color: red !important;
-    /* opacity: 1; */
+    animation: cardUp 350ms 1 forwards;
 }
 
 .outline .inline:hover {
-    color: red !important;
+    /* color: red !important; */
     filter: contrast(1.1);
     box-shadow: inset -20px -3px 20px 5px #000000bd;
 }

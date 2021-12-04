@@ -27,10 +27,8 @@ function AllNotes() {
                             <div className="d-flex bookArrange" >
                                 <div className="d-flex" style={{ width: "90%", flexWrap: "wrap" }}>
                                     {userNotes.map((e) => {
-                                        return <Page key={e._id} id={e._id} data={e} title={e.title} description={e.description} />
+                                        return <Page key={e._id} id={e._id} data={e} color={e.color} date={e.date } title={e.title} description={e.description} />
                                     })}
-                                    <Page title="This is Title 1" description="I'am Description 1 Follow the instructions to embed the icon font in your site and learn how to style your icons using ." />
-                                    <CreatePage />
                                 </div>
                             </div>
                         </div>

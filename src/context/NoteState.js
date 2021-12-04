@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react"
 import NotebookContext from "./NotebookContext";
 import NoteContext from './NoteContext'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NoteState(props) {
 
     // BACKEND HOSTED URL :
     const webUrl = process.env.REACT_APP_WebUrl;
+const Context = useContext(NotebookContext)
+const {loading, setLoading} = Context;
 
     const [notes, setNotes] = useState([])
     const [userNotes, setUserNotes] = useState([])
@@ -14,26 +17,25 @@ function NoteState(props) {
     
 
     // GET NOTE user specified :~
-  const [loading, Setloading] = useState(true)
     // API
     const getuserNotes = async () => {
-        Setloading(true)
+        setLoading(true)
         const response = await fetch(`${webUrl}/api/notes/fetchusernotes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+                "auth-token":localStorage.getItem("token")
             },
         })
         const json = await response.json()
         setUserNotes(json)
-        Setloading(false)
+        setLoading(false)
         
     }
     // GET NOTE :~
     // API
     const getNotes = async () => {
-        Setloading(true)
+        setLoading(true)
         let pathname = window.location.pathname;
         pathname = pathname.split('/')
 
@@ -42,15 +44,15 @@ function NoteState(props) {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+                "auth-token":localStorage.getItem("token")
             },
         })
         const json = await response.json()
         setNotes(json)
-        Setloading(false)
+        setLoading(false)
 
     }
-    const [color, setColor] = useState("blue")
+    const [color, setColor] = useState("rgb(179, 181, 182)")
 
     // ADD NOTE :~
     const addNote = async (e) => {
@@ -64,12 +66,22 @@ function NoteState(props) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+                "auth-token":localStorage.getItem("token")
             },
             body: JSON.stringify({ title, description,color,date }),
         })
         getNotes()
         getuserNotes()
+        toast.success('Bingo! New Note Have Been Created Successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme:'light'
+        });
     }
 
     // DELETE NOTE  :~
@@ -79,7 +91,7 @@ function NoteState(props) {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+                "auth-token":localStorage.getItem("token")
             },
         })
 
@@ -88,6 +100,16 @@ function NoteState(props) {
         setNotes(updatedNotes)
         getNotes()
         getuserNotes()
+        toast.warn('Note Deleted!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme:'light'
+        });
 
     }
 
@@ -99,12 +121,22 @@ function NoteState(props) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYThiODg4MWEzNWYyZTEyNWU1ZjZhOCIsImlhdCI6MTYzODQ0NzQ4OX0._90jzH2sEM4V30NQc3ODvkVJ0skuQqHD-wDb0LLtwxU"
+                "auth-token":localStorage.getItem("token")
             },
             body: JSON.stringify({ title, description,color}),
         })
         getNotes()
         getuserNotes()
+        toast.success('Bingo! Your Note Content Have Been Updated Successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme:'light'
+        });
 
     }
 
@@ -117,9 +149,12 @@ function NoteState(props) {
     const [notebookTitle, setnotebookTitle] = useState(" ")
 
 
+    const [show , setShow] = useState(false)
+
+
 
     return (
-        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,loading, Setloading,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor}}>
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor,show , setShow}}>
             {props.children}
         </NoteContext.Provider>
     )

@@ -4,7 +4,7 @@ import '../css/createPage.css'
 
 function CreatePage() {
     const Context = useContext(NoteContext)
-    const { NoteTitle, setNoteTitle, color, setColor, NoteDescription, setNoteDescription, addNote } = Context
+    const { NoteTitle, setNoteTitle, color, setColor, NoteDescription, setNoteDescription, addNote ,show , setShow} = Context
 
 
     const toggleClick = () => {
@@ -28,6 +28,7 @@ function CreatePage() {
             closeRef.current.click()
             setNoteTitle(' ')
             setNoteDescription(' ')
+            setShow(false)
             closeRef.current.click()
             setIsEmpty(false)
         } else {
@@ -56,20 +57,23 @@ function CreatePage() {
                             {/* <h5 className="modal-title" id="staticBackdropLabel">{props.task} Note</h5> */}
                             {/* NOTETITLE------------------------------- */}
                             <div className="input-box d-flex">
-                                <input value={NoteTitle} onChange={(e) => { setNoteTitle(e.target.value) }} type="text" className="form-control" placeholder="Give Some Title Here *" />
-                                <div style={{ backgroundColor: `${color}` }} className="colorBox" ></div>
-                                    <div onClick={()=>{setColor('rgb(255,156,0)')}} style={{ backgroundColor: 'rgb(255,156,0)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(179,181,182)')}} style={{ backgroundColor: 'rgb(179,181,182)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(0,150,168)')}} style={{ backgroundColor: 'rgb(0,150,168)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(212,224,227)')}} style={{ backgroundColor: 'rgb(212,224,227)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('#ff8585e0')}} style={{ backgroundColor: '#ff8585e0' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('#fff')}} style={{ backgroundColor: '#fff' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(255,217,33)')}} style={{ backgroundColor: 'rgb(255,217,33)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(254,128,129)')}} style={{ backgroundColor: 'rgb(254,128,129)' }} class="dropdown-item colors"></div>
-                                    <div onClick={()=>{setColor('rgb(104,176,50)')}} style={{ backgroundColor: 'rgb(104,176,50)' }} class="dropdown-item colors"></div>
-                                    
-                            </div>
+                                <input value={NoteTitle} onChange={(e) => { setNoteTitle(e.target.value) }} type="text" className="titletoedit  form-control" placeholder="Untitled" />
+
+                               <div style={{ backgroundColor: `${color}` }} onClick={()=>{!show?setShow(true):setShow(false)}} className="colorBox" ></div>
+
+    <div className={`${show?'d-flex visible open':'d-flex invisible'}`}>
+            <div onClick={()=>{setShow(false); setColor('rgb(255,156,0)')}} style={{ backgroundColor: 'rgb(255,156,0)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(179,181,182)')}} style={{ backgroundColor: 'rgb(179,181,182)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(0,150,168)')}} style={{ backgroundColor: 'rgb(0,150,168)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(212,224,227)')}} style={{ backgroundColor: 'rgb(212,224,227)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('#ff8585e0')}} style={{ backgroundColor: '#ff8585e0' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('#fff')}} style={{ backgroundColor: '#fff' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(255,217,33)')}} style={{ backgroundColor: 'rgb(255,217,33)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(254,128,129)')}} style={{ backgroundColor: 'rgb(254,128,129)' }} class="dropdown-item colors"></div>
+            <div onClick={()=>{setShow(false); setColor('rgb(104,176,50)')}} style={{ backgroundColor: 'rgb(104,176,50)' }} class="dropdown-item colors"></div>
+    </div>                               
                             
+                            </div>
                             {/* BOOTSTRAP TOAST */}
                             <div style={{ backgroundColor: `${color}` }} className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} style={{ zIndex: '11' }}>
                                 <div id="liveToast">

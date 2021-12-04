@@ -6,12 +6,12 @@ import '../../css/pageHeader.css'
 function PageHeader(props) {
     const [arrowAnimation, setArrowAnimation] = useState("")
     const location = useLocation()
-    const history  = useNavigate(null)
+    const go  = useNavigate(null)
     const animateArrow = () => {
 
         setTimeout(() => {
             if(location.pathname === '/mynotebooks' || location.pathname === '/mdviewer'){
-                history("/")
+                go("/")
             }
             else{
                 window.history.go(-1)
