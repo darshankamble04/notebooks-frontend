@@ -14,7 +14,8 @@ import ResetPass from './components/screens/auth/ResetPass';
 import ForgotPass from './components/screens/auth/ForgotPass';
 import AllBookmarkNB from './components/screens/myNotebooks/AllBookmarkNB';
 import AllNotes from './components/screens/notes/AllNotes';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
@@ -35,6 +36,17 @@ function App() {
             </Routes>
           </Router>
 
+          <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
     </>
   );
 }

@@ -16,7 +16,7 @@ function Headers() {
                     z-index: 1;
                     `;
     return (
-        <div>
+        <>
             <nav class="cNavbar navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Notes Yard</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,7 +36,7 @@ function Headers() {
             </nav>
             <BarLoader size="67%" css={override} color ='rgb(8 210 236)' loading={loading}/>
                         <UserProfile/>
-        </div>
+        </>
     )
 }
 

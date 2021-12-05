@@ -1,12 +1,16 @@
 import React, { useContext, useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import NotebookContext from '../../../context/NotebookContext';
 import Footer from '../../common/Footer';
 import Headers from '../../common/Headers';
 import Sidebar from '../../common/Sidebar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {validator} from 'validator';
 
 function Register() {
     const [notMatch, setnotMatch] = useState(false)
+    const go = useNavigate(null)
     const context = useContext(NotebookContext)
     const clicked = useRef(null)
 
@@ -21,7 +25,7 @@ function Register() {
         e.preventDefault()
         setLoading(true)
         // setCredentials({email:credentials.email,password:credentials.password})
-        if (credentials.Password === credentials.cPassword) {
+        if (credentials.password == credentials.cpassword) {
 
             const response = await fetch(`${webUrl}/api/auth/createuser`, {
                 method: 'POST',
@@ -32,15 +36,31 @@ function Register() {
             })
             const json = await response.json()
             if (json.error) {
-                console.error(json.error)
+                toast.error(`${json.error}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme:'light'
+                });
                 setCredentials({})
             }
-            // if (json.success) {
-            //     localStorage.setItem('token', json.token)
-            //     history.push('/')
-            // }
             if (json.success) {
                 alert(json.msg)
+                toast.success(`Verification Link Has Been Send On Your Register Email Id! Verify Yourself`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme:'light'
+                });
+                go('/login')
             }
         }
         else {
@@ -53,7 +73,7 @@ function Register() {
         <div>
             <Headers />
         </div>
-        <div className="d-flex">
+        <div className="d-flex setHeight">
             <Sidebar />
             <div className="d-flex flex-column">
                 <main className="mainContent d-flex flex-column" style={{overflowY:'hidden'}}>
@@ -64,12 +84,12 @@ function Register() {
                         <div className="input-box underline">
                             <input value={credentials.name} name="name" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Name" required />
                             <div className="underline"></div>
-                            <div style={{ color: "red" }} className={`form-text ${!credentials.name === undefined ? "visible" : "invisible"}`}>Name cannot be blank!</div>
+                            <div style={{ color: "red" }} className={`form-text`}>{true?"Name cannot be blank!":"right"}</div>
                         </div>
                         <div className="input-box underline">
                             <input value={credentials.email} name="email" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Email" required />
                             <div className="underline"></div>
-                            <div style={{ color: "red" }} className={`form-text ${!credentials.email === undefined ? "visible" : "invisible"}`}>Name cannot be blank!</div>
+                            <div style={{ color: "red" }} className={`form-text`} >{credentials.email? !validator.isEmail(credentials.email)?"Name cannot be blank!":"right":""}</div>
                         </div>
                         <div className="input-box">
                             <input value={credentials.password} name="password" onChange={(e) => { toggleChange(e) }} type="password" placeholder="Enter Your Password" required />

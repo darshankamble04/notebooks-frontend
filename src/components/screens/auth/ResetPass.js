@@ -5,6 +5,8 @@ import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import Sidebar from '../../common/Sidebar'
 import './css/style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ResetPass() {
     const [credentials, setCredentials] = useState({})
@@ -30,14 +32,29 @@ function ResetPass() {
                 body: JSON.stringify({email: credentials.email, password: credentials.password, newpassword: credentials.newpassword }),
             })
             const json = await response.json()
-            if (json.error) {
-                alert(json.error)
-            }
             if (json.success) {
-                alert(json.msg)
-                // const loginOutline = document.getElementById('loginOutline')
-                // loginOutline.innerHTML= json.msg
-                // setCredentials({})
+                toast.success(`${json.msg}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme:'light'
+                });
+            }else{
+                toast.error(`${json.msg}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme:'light'
+                });
+
             }
             setLoading(false)
     }
@@ -46,7 +63,7 @@ function ResetPass() {
             <div>
             <Headers />
         </div>
-        <div className="d-flex">
+        <div className="d-flex setHeight">
             <Sidebar />
             <div className="d-flex flex-column">
                 <main className="mainContent d-flex flex-column" style={{overflowY:'hidden'}}>

@@ -1,9 +1,13 @@
 .mainContent {
     width: 89.5vw;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 59px);
     overflow-y: scroll;
     overflow-x: hidden;
     position: relative;
+}
+
+.setHeight {
+    height: 91.8vh;
 }
 
 

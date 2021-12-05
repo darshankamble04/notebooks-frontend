@@ -117,6 +117,10 @@
     transition-duration: 0.3s;
 }
 
+.canvasC .offcanvas-body {
+    overflow: hidden;
+}
+
 .canvasC .closeBtn {
     color: #fff;
     background-color: #000;

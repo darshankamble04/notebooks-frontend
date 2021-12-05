@@ -15,7 +15,7 @@ function MyNotebooks() {
             <div>
                 <Headers />
             </div>
-            <div className="d-flex">
+            <div className="d-flex setHeight">
                 <Sidebar />
                 <div className="d-flex flex-column">
                     <main className="mainContent d-flex flex-column">

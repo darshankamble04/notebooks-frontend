@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert from '../../common/Alert'
+import { Link } from 'react-router-dom'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
@@ -12,11 +12,10 @@ function Home() {
             <div>
                 <Headers />
             </div>
-            <div className="d-flex">
+            <div className="d-flex setHeight">
                 <Sidebar />
                 <div className="d-flex flex-column">
                     {/* <PageHeader /> */}
-                    <Alert/>
                     <main className="mainContent d-flex flex-column">
                         <div>
                             <section id="box" class="d-flex flex-column justify-content-end align-items-center">
@@ -26,8 +25,14 @@ function Home() {
                                             <h2 >Welcome to Notes Yard</h2>
                                             <p>Experience the beautifully simple note taking app on the web today.</p>
                                             <div className="d-flex">
-                                                <a href="#" class="box-btn">Notebooks</a>
-                                                <a href="#" class="box-btn">Notes</a>
+                                            {localStorage.getItem('token')?
+                                                <Link to="/mynotebooks" class="box-btn">Let's Create Notebooks &#8594;</Link>
+                                                :
+                                                <div className="d-flex">
+                                            <Link to="/register" class="box-btn">SignUp</Link>
+                                            <Link to="/login" class="box-btn">SignIn</Link>
+                                            </div>
+                                            }
                                             </div>
                                         </div>
                                     </div>
