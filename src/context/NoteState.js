@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import NotebookContext from "./NotebookContext";
 import NoteContext from './NoteContext'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function NoteState(props) {
@@ -9,7 +9,7 @@ function NoteState(props) {
     // BACKEND HOSTED URL :
     const webUrl = process.env.REACT_APP_WebUrl;
 const Context = useContext(NotebookContext)
-const {loading, setLoading} = Context;
+const { setLoading} = Context;
 
     const [notes, setNotes] = useState([])
     const [userNotes, setUserNotes] = useState([])

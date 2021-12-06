@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
-import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
 import './css/home.css'
 
@@ -12,7 +11,7 @@ function Home() {
             <div>
                 <Headers />
             </div>
-            <div className="d-flex setHeight">
+            <div id="setHeight" className="d-flex">
                 <Sidebar />
                 <div className="d-flex flex-column">
                     {/* <PageHeader /> */}

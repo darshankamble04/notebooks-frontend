@@ -5,7 +5,6 @@ import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
 import Notebook from './components/Notebook'
-import NotebookColl from './components/NotebookColl'
 import './css/myNotebooks.css'
 import './css/notebook.css'
 
@@ -15,6 +14,7 @@ function AllBookmarkNB() {
 
     useEffect(() => {
         getBookmarkedNotebooks()
+        // eslint-disable-next-line
     }, [])
     return (
         <>

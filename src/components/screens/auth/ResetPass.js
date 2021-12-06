@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
 import NotebookContext from '../../../context/NotebookContext'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import Sidebar from '../../common/Sidebar'
 import './css/style.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ResetPass() {
@@ -14,7 +13,7 @@ function ResetPass() {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
     const Context = useContext(NotebookContext)
-    const {loading, setLoading} = Context
+    const {setLoading} = Context
 
     const webUrl = process.env.REACT_APP_WebUrl;
 

@@ -45,7 +45,8 @@ function Page(props) {
                 </div>
                 <div className="operations">
                     <span data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onClick={() => { toggleClick(props.data) }} className="material-icons" >edit</span>
-                    <span onClick={() => { toggleClick(props.data) }} className="material-icons" data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span>
+
+                    <span data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span>
                     <span className="material-icons" onClick={() => { deleteNote(props.id) }}>delete</span>
                 </div>
                 <div className="updatedDate">

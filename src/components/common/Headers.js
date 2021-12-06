@@ -1,13 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../css/header.css'
 import { BarLoader } from 'react-spinners'
 import { css } from "@emotion/react";
 import NotebookContext from '../../context/NotebookContext';
 import UserProfile from '../screens/auth/UserProfile';
 import '../screens/auth/css/displayUser.css'
+import { Link } from 'react-router-dom';
 function Headers() {
+    
+    const toggleSiderbar = () => {
+        if (addclasses) {
+            setAddclasses(false)
+        }
+        if (!addclasses) {
+            setAddclasses(true)
+        }
+    }
     const Context = useContext(NotebookContext)
-    const { loading, setLoading} = Context
+    const { loading,addclasses, setAddclasses} = Context
     const override = css`
                     position: absolute;
                     width:100%;
@@ -18,7 +28,12 @@ function Headers() {
     return (
         <>
             <nav class="cNavbar navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Notes Yard</a>
+            <div className={`container2 ${addclasses ? "" : "change"}`} id="my1" onClick={toggleSiderbar}>
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
+            </div>
+                <Link to="/" class="navbar-brand" href="#">Notes Yard</Link>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         {/* <li class="nav-item d-flex align-items-center">

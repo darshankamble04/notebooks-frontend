@@ -4,9 +4,8 @@ import NotebookContext from '../../../context/NotebookContext';
 import Footer from '../../common/Footer';
 import Headers from '../../common/Headers';
 import Sidebar from '../../common/Sidebar';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {validator} from 'validator';
 
 function Register() {
     const [notMatch, setnotMatch] = useState(false)
@@ -15,7 +14,7 @@ function Register() {
     const clicked = useRef(null)
 
     
-    const {loading, setLoading, credentials, setCredentials } = context
+    const {setLoading, credentials, setCredentials } = context
     const webUrl = process.env.REACT_APP_WebUrl;
 
     const toggleChange = (e) => {
@@ -25,7 +24,7 @@ function Register() {
         e.preventDefault()
         setLoading(true)
         // setCredentials({email:credentials.email,password:credentials.password})
-        if (credentials.password == credentials.cpassword) {
+        if (credentials.password === credentials.cpassword) {
 
             const response = await fetch(`${webUrl}/api/auth/createuser`, {
                 method: 'POST',
@@ -84,12 +83,12 @@ function Register() {
                         <div className="input-box underline">
                             <input value={credentials.name} name="name" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Name" required />
                             <div className="underline"></div>
-                            <div style={{ color: "red" }} className={`form-text`}>{true?"Name cannot be blank!":"right"}</div>
+                            {/* <div style={{ color: "red" }} className={`form-text`}>{(credentials.name == undefined || credentials.name.length<4) ?"Name contain at least 4 charactors":""}</div> */}
                         </div>
                         <div className="input-box underline">
                             <input value={credentials.email} name="email" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Email" required />
                             <div className="underline"></div>
-                            <div style={{ color: "red" }} className={`form-text`} >{credentials.email? !validator.isEmail(credentials.email)?"Name cannot be blank!":"right":""}</div>
+                            {/* <div style={{ color: "red" }} className={`form-text`} >{credentials.email? validator.isEmail(credentials.email)?"Enter a valid email id":"":""}</div> */}
                         </div>
                         <div className="input-box">
                             <input value={credentials.password} name="password" onChange={(e) => { toggleChange(e) }} type="password" placeholder="Enter Your Password" required />

@@ -4,7 +4,6 @@ import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
-import CreatePage from './components/CreatePage'
 import Page from './components/Page'
 function AllNotes() {
     const Context = useContext(NoteContext)

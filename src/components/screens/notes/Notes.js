@@ -4,7 +4,7 @@ import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
 import NotesColl from './components/NotesColl'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Notes() {
     return (

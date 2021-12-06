@@ -2,8 +2,8 @@
     background-color: rgb(105 105 105);
     position: relative;
     border: 2px solid #000;
-    width: 178px !important;
-    height: 243px !important;
+    width: 178px;
+    height: 243px;
     margin: 20px;
     cursor: pointer;
     border-radius: 14px 13px 21px 0px;
@@ -176,8 +176,9 @@
 .spiral {
     z-index: 9;
     width: 12%;
-    height: 246px !important;
+    height: 290px;
     float: left;
     position: relative;
+    top: -21px;
     left: -9px;
 }

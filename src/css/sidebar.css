@@ -1,16 +1,18 @@
 .sidebar {
+    top: -4px;
     background-color: var(--main-bg-color);
     display: flex;
     position: relative;
-    top: -4px;
     padding-top: 4px;
+    padding-left: 10px;
     z-index: 2;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     /* width: 75px; */
     min-width: 10.5vw;
-    height: calc(100vh - 56px);
+    /* height: calc(100vh - 56px); */
+    height: 100.5%;
     font-size: 1rem;
     color: rgba(245, 245, 245, 0.493);
     font-family: 'Poppins', sans-serif;
@@ -25,7 +27,8 @@
     position: relative;
     /* border: 1.2px solid rgb(94, 94, 94); */
     border-radius: 4px;
-    width: 9.4vw;
+    /* width: 9.4vw; */
+    width: 94%;
     height: 50px;
     display: grid;
     grid-template-columns: 44px auto;
@@ -65,3 +68,226 @@
 .sidebarLabel img {
     width: 1.45rem;
 }
+
+
+/* responsive */
+
+@media screen and (max-width: 1536px) {
+    .sidebar {
+        min-width: 161.18px;
+    }
+    #setHeight {
+        /* height: calc(100vh - 60px);
+        height: 100vh; */
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+    .sidebar {
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .sidebar {
+        /* display: none !important; */
+        /* height: 100vh !important; */
+    }
+    .setHeight {
+        overflow: visible !important;
+    }
+    .mainContent {
+        width: 100vw !important;
+        /* background-color: red; */
+    }
+    .pageHeader {
+        height: 52px !important;
+        padding: 2rem 0 1rem 1rem !important;
+    }
+    #box {
+        width: 100vw !important;
+    }
+}
+
+@media screen and (max-width: 734px) {
+    .mainContent {
+        width: 110vw !important;
+        /* background-color: red; */
+    }
+    #setHeight {
+        height: 100vh !important;
+    }
+    .setHeight {
+        height: 110vh !important;
+    }
+    #box {
+        width: 100vw !important;
+    }
+}
+
+
+/* notebookcoll */
+
+.bookArrInsidecon {
+    width: 90%;
+}
+
+@media screen and (max-width: 664px) {
+    .mainContent {
+        width: 110vw !important;
+        /* background-color: red; */
+    }
+    #setHeight {
+        height: 100vh !important;
+    }
+    .setHeight {
+        height: 110vh !important;
+    }
+    .bookArrInsidecon {
+        width: 98% !important;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .outline {
+        width: 200px !important;
+        height: 267px !important;
+    }
+    .spiral {
+        width: 12%;
+        height: 245px !important;
+        top: 10px !important;
+    }
+    .cNavbar {
+        padding-left: 65px !important;
+    }
+}
+
+
+/* Home */
+
+#box {
+    margin-bottom: 20px !important;
+}
+
+@media (max-width: 612px) {
+    #box .box-container {
+        height: 55vh !important;
+        padding-top: 60px;
+    }
+    #box h2 {
+        margin-bottom: 8px !important;
+        font-size: 2.2rem !important;
+    }
+    #box p {
+        width: 60% !important;
+        font-size: 0.8rem;
+    }
+    .box-waves {
+        height: 42px !important;
+    }
+    #box .box-btn {
+        font-size: 0.8rem;
+    }
+    #box p {
+        margin: 0 auto 7px auto !important;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .outline {
+        width: 178px !important;
+        height: 243px !important;
+    }
+    .spiral {
+        width: 12%;
+        height: 246px !important;
+        top: 0 !important;
+        left: -9px;
+    }
+    .mainContent {
+        width: 120vw !important;
+        /* background-color: red; */
+        height: 120vh !important;
+    }
+    #setHeight {
+        height: 100vh !important;
+    }
+    .setHeight {
+        height: 120vh !important;
+    }
+    .bookArrInsidecon {
+        width: 99% !important;
+    }
+    #box {
+        width: 100vw !important;
+    }
+    .box-item {
+        padding: 0 4px 0 4px !important;
+        height: 50vh;
+    }
+    #box h2 {
+        font-size: 1.8rem !important;
+    }
+    #box .box-container {
+        padding-top: 0 !important;
+    }
+    .bookArrange {
+        padding-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 457px) {
+    .bookArrange {
+        padding-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .bookArrange {
+        padding-left: 1rem !important;
+    }
+    .notebookColl {
+        width: 110vw;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .bookArrange {
+        padding-left: 1rem !important;
+    }
+    .outline {
+        width: 235px !important;
+        height: 306px !important;
+    }
+    .spiral {
+        z-index: 9;
+        width: 12%;
+        height: 286px !important;
+        left: -11px !important;
+        top: 13px !important;
+    }
+    .outline .dots {
+        left: 12px;
+    }
+    .bookArrInsidecon {
+        justify-content: center;
+    }
+    .outline .menu .material-icons {
+        font-size: 2.2rem;
+    }
+    /* .bookmarked {
+        left: 27px !important;
+    } */
+}
+
+
+/* 
+@media (min-width: 1024px) {
+    #box p {
+        width: 60%;
+    }
+    #box .carousel-control-prev,
+    #box .carousel-control-next {
+        width: 5%;
+    }
+} */

@@ -1,15 +1,13 @@
-import React, { useState, useContext, useRef, useEffect } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
 import NotebookContext from '../../../../context/NotebookContext'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark,eData, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId} = Context;
+    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId} = Context;
     const [isEmpty, setIsEmpty] = useState(false)
 
     const toggleEdit = (data) => {

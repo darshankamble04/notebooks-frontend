@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CreateNotebook from './CreateNotebook'
 import Notebook from './Notebook'
-import { notebookCoverUrl } from '../../../common/Helper'
 import NotebookContext from '../../../../context/NotebookContext'
 
 function NotebookColl() {
     const Context = useContext(NotebookContext)
-    const { notebooks,WindowLoading, getNotebooks } = Context
+    const { notebooks, getNotebooks } = Context
 
     useEffect(() => {
         getNotebooks()
         // setWindowLoading(loading)
-
+// eslint-disable-next-line
     }, [])
     return (
         <>
@@ -42,7 +41,7 @@ function NotebookColl() {
                 </div> */}
 
                 <div className="d-flex bookArrange" >
-                    <div className="d-flex" style={{ width: "90%", flexWrap: "wrap" }}>
+                    <div className="d-flex bookArrInsidecon" style={{ width: "90%", flexWrap: "wrap" }}>
                         {notebooks.map((e) => {
                             return <Notebook key={e._id} id={e._id} data={e} title={e.notebookTitle} cover={e.notebookCover} />
                         })}

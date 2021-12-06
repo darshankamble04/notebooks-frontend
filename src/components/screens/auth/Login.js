@@ -3,17 +3,16 @@ import { Link,useNavigate } from 'react-router-dom'
 import NotebookContext from '../../../context/NotebookContext'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
-import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
 import './css/style.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     const go = useNavigate(null)
     const clicked = useRef(null)
     const context = useContext(NotebookContext)
-    const {googleLogin, setGoogleLogin, credentials, setCredentials } = context
+    const { credentials, setCredentials } = context
     // const [credentials, setCredentials] = useState({})
 
     const webUrl = process.env.REACT_APP_WebUrl;

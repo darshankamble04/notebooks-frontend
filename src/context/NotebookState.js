@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import NotebookContext from "./NotebookContext"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const NotebookState = (props) => {
 
@@ -8,9 +8,9 @@ const NotebookState = (props) => {
 
   const initialNotebooks = [];
   const [notebooks, setNotebooks] = useState(initialNotebooks);
-  
+
   const [loading, setLoading] = useState(false)
-  
+
   // Get Notebooks :
   const getNotebooks = async () => {
     setLoading(true)
@@ -26,7 +26,7 @@ const NotebookState = (props) => {
     setLoading(true)
     setLoading(false)
   }
-  
+
   // Getbookmarked Notebooks :
   const getBookmarkedNotebooks = async () => {
     setLoading(true)
@@ -66,22 +66,22 @@ const NotebookState = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme:'light'
-  });
+      theme: 'light'
+    });
 
   }
 
   // CHANGE THIS 👉 IMP 
 
-  
+
   const [eData, setEData] = useState({ enotebookTitle: '', eid: '', enotebookCover: '' })
   const [notebookCover, setnotebookCover] = useState()
-    const [notebookTitle, setnotebookTitle] = useState("")
-    const [id, setId] = useState("")
+  const [notebookTitle, setnotebookTitle] = useState("")
+  const [id, setId] = useState("")
 
   // update Notebooks :
   const updateNotebooks = async (e) => {
-    const { notebookTitle, notebookCover,id } = e;
+    const { notebookTitle, notebookCover, id } = e;
     // API
     await fetch(`${webUrl}/api/notebooks/updatenotebook/${id}`, {
       method: 'PUT',
@@ -100,8 +100,8 @@ const NotebookState = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme:'light'
-  });
+      theme: 'light'
+    });
   }
 
   // add bookmark Notebooks :
@@ -123,8 +123,8 @@ const NotebookState = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme:'light'
-  });
+      theme: 'light'
+    });
   }
 
   // remove bookmark Notebooks :
@@ -146,8 +146,8 @@ const NotebookState = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme:'light'
-  });
+      theme: 'light'
+    });
   }
 
   // Delete Notebooks :
@@ -169,19 +169,20 @@ const NotebookState = (props) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme:'light'
-  });
+      theme: 'light'
+    });
   }
 
   const [credentials, setCredentials] = useState({})
+  const [addclasses, setAddclasses] = useState(true)
 
 
   // credentials, setCredentials,googleLogin, setGoogleLogin,isEmpty, setIsEmpty,countid, setId,loading, Setloading
 
-//  esetdata, edata, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle
+  //  esetdata, edata, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle
 
   return (
-    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks,addNotebooks, updateNotebooks,eData, setEData, deleteNotebooks,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,addbookmark,removebookmark,getBookmarkedNotebooks,loading, setLoading,credentials, setCredentials }}>
+    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses }}>
       {props.children}
     </NotebookContext.Provider>
   )

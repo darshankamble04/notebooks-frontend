@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import NoteContext from '../../../../context/NoteContext'
 import '../css/createPage.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreatePage() {
     const Context = useContext(NoteContext)
@@ -32,6 +34,16 @@ function CreatePage() {
             closeRef.current.click()
             setIsEmpty(false)
         } else {
+            toast.warn('Note Title cannot be blank!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+              });
             setIsEmpty(true)
         }
     }
@@ -75,7 +87,7 @@ function CreatePage() {
                             
                             </div>
                             {/* BOOTSTRAP TOAST */}
-                            <div style={{ backgroundColor: `${color}` }} className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} style={{ zIndex: '11' }}>
+                            {/* <div style={{ backgroundColor: `${color}`,zIndex: '11' }} className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} >
                                 <div id="liveToast">
                                     <div className="toast-header">
                                         <small className="me-auto">
@@ -83,7 +95,7 @@ function CreatePage() {
                                         </small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="d-flex align-items-center">
                                 {/* <button type="button" onClick={toggleClick} className="btn btn-primary"> Add Note </button> */}
