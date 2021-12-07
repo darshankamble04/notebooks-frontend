@@ -3,11 +3,14 @@ import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
 import NotebookContext from '../../../../context/NotebookContext'
+import NoteContext from '../../../../context/NoteContext'
 
 function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId} = Context;
+    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,setLoading} = Context;
+    const context = useContext (NoteContext)
+    const {userNotes} = context
     const [isEmpty, setIsEmpty] = useState(false)
 
     const toggleEdit = (data) => {
@@ -19,6 +22,7 @@ function Notebook(props) {
     
     const submitNotebook = (e) => {
         e.preventDefault()
+        setLoading(true)
         // eslint-disable-next-line
         if (!notebookTitle.length == 0) {
             updateNotebooks({ notebookTitle, notebookCover, id })
@@ -31,14 +35,16 @@ function Notebook(props) {
     }
     return (
         <>
-            <Link onClick={()=>{toggleEdit(props.data)}} to={`/mynotebooks/${props.id}/${props.title}`} className="outline ">
+            <Link onClick={()=>{toggleEdit(props.data)}} to={`/mynotebooks/${props.id}/${props.title}`} className="outline " >
                 <img className="spiral" src="https://cdn.classmateshop.co.in/live/Front-Assets/FrontEnd/SPIRAL.svg" alt="" />
                 <div className="inline" style={{ background: `url(${notebookCoverUrl[`${props.cover}`]})` }}>
                     <div className="dots"></div>
                     <div className="NotebookName">
                         <div >{props.title}</div>
                         <div style={{ color: '#9e9e9e', fontSize: "0.7rem" }} >
-                            Notes 23
+                            {userNotes.filter((e) => { return e.notebook === props.id }).length === 0 || userNotes.filter((e) => { return e.notebook === props.id }).length === 1 ? "Note" : "Notes"}
+                            {' '}
+                            {userNotes.filter((e) => { return e.notebook === props.id }).length}
                         </div>
                     </div>
                     {/* Toggle Bookmark */}
@@ -48,8 +54,8 @@ function Notebook(props) {
                     </div>
                     <div className="menu d-flex flex-column position-absolute">
                         <Link onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" to="/mynotebooks" className="material-icons" >edit</Link>
-                        <Link to="/mynotebooks" onClick={() => { props.data.bookmark?removebookmark(props.id) :addbookmark(props.id) }} className="material-icons" style={{color:`${props.data.bookmark?"red":""}`}}>bookmark</Link>
-                        <Link to="/mynotebooks" onClick={() => { deleteNotebooks(props.id) }} className="material-icons">delete</Link>
+                        <Link to="/mynotebooks" onClick={() => { props.data.bookmark?removebookmark(props.id) :addbookmark(props.id);setLoading(true); }} className="material-icons" style={{color:`${props.data.bookmark?"red":""}`}}>bookmark</Link>
+                        <Link to="/mynotebooks" onClick={() => { deleteNotebooks(props.id);setLoading(true); }} className="material-icons">delete</Link>
                     </div>
                 </div>
             </Link>

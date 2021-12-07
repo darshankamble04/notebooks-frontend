@@ -13,7 +13,6 @@ function Login() {
     const clicked = useRef(null)
     const context = useContext(NotebookContext)
     const { credentials, setCredentials } = context
-    // const [credentials, setCredentials] = useState({})
 
     const webUrl = process.env.REACT_APP_WebUrl;
 
@@ -23,7 +22,6 @@ function Login() {
     const toggleSubmit = async (e) => {
         e.preventDefault()
         console.log('clicked submit')
-        // setCredentials({email:credentials.email,password:credentials.password})
         const response = await fetch(`${webUrl}/api/auth/login`, {
             method: 'POST',
             headers: {

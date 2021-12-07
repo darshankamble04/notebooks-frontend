@@ -1,23 +1,16 @@
 .mainContent {
-    width: 100% !important;
-    height: 100vh;
+    width: calc(100vw - 161.18px);
+    height: 100%;
+    margin-left: 161.18px;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     position: relative;
+    margin-top: 60px;
+    z-index: 12;
 }
 
 .setHeight {
-    height: calc(100vh - 60px);
     height: 100vh;
-    padding-top: 60px;
-    overflow: hidden;
-}
-
-#setHeight {
-    height: calc(100vh - 60px);
-    height: 100vh;
-    overflow: hidden;
-    padding-top: 60px;
 }
 
 
@@ -26,8 +19,7 @@
 --------------------------------------------------------------*/
 
 #box {
-    /* width: 89.5vw; */
-    width: 100% !important;
+    width: 89.5vw;
     overflow: hidden;
     position: relative;
     background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%);
