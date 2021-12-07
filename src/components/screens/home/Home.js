@@ -11,9 +11,9 @@ function Home() {
             <div>
                 <Headers />
             </div>
-            <div id="setHeight" className="d-flex">
+            <div className="d-flex setHeight">
                 <Sidebar />
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column overflow-hidden">
                     {/* <PageHeader /> */}
                     <main className="mainContent d-flex flex-column">
                         <div>

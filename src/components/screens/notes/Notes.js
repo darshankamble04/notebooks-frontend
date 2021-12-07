@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import NotebookContext from '../../../context/NotebookContext'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import PageHeader from '../../common/PageHeader'
 import Sidebar from '../../common/Sidebar'
 import NotesColl from './components/NotesColl'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 function Notes() {
+    const Context = useContext(NotebookContext)
+    const {notebookTitle} = Context;
     return (
         <>
             <div>
@@ -16,7 +17,7 @@ function Notes() {
                 <Sidebar />
                 <div className="d-flex flex-column">
                     <main className="mainContent d-flex flex-column">
-                        <PageHeader header="Notes" />
+                        <PageHeader header={notebookTitle} />
                             <div className="notebookColl">
                                 <NotesColl/>
                             </div>
@@ -24,17 +25,6 @@ function Notes() {
                     </main>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
         </>
     )
 }

@@ -25,7 +25,7 @@ function AllBookmarkNB() {
                 <Sidebar />
                 <div className="d-flex flex-column">
                     <main className="mainContent d-flex flex-column">
-                        <PageHeader header="Notebooks" />
+                        <PageHeader header="Bookmarks" />
                         <div className="notebookColl d-flex flex-column justify-content-between ">
                             <div className="d-flex bookArrange" >
                                 <div className="d-flex" style={{ width: "90%", flexWrap: "wrap" }}>

@@ -21,10 +21,10 @@ function AllNotes() {
                 <Sidebar />
                 <div className="d-flex flex-column">
                     <main className="mainContent d-flex flex-column">
-                        <PageHeader header="Notes" />
+                        <PageHeader header="All Notes" />
                         <div className="notebookColl">
                             <div className="d-flex bookArrange" >
-                                <div className="d-flex" style={{ width: "90%", flexWrap: "wrap" }}>
+                                <div className="d-flex W-90" style={{flexWrap: "wrap" }}>
                                     {userNotes.map((e) => {
                                         return <Page key={e._id} id={e._id} data={e} color={e.color} date={e.date } title={e.title} description={e.description} />
                                     })}

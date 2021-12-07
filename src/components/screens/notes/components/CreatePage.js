@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import NoteContext from '../../../../context/NoteContext'
 import '../css/createPage.css'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function CreatePage() {
     const Context = useContext(NoteContext)
@@ -15,6 +13,7 @@ function CreatePage() {
     }
 
     const closeRef = useRef(null)
+    // eslint-disable-next-line
     const [isEmpty, setIsEmpty] = useState(false)
 
     useEffect(() => {
@@ -34,16 +33,6 @@ function CreatePage() {
             closeRef.current.click()
             setIsEmpty(false)
         } else {
-            toast.warn('Note Title cannot be blank!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light'
-              });
             setIsEmpty(true)
         }
     }

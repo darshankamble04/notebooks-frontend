@@ -15,7 +15,7 @@
 .pageBody:hover {
     text-shadow: 1px 0px 0px #000;
     filter: drop-shadow(2px 4px 6px rgb(114, 114, 114));
-    z-index: 10;
+    z-index: 0;
     transform: scale(1.1);
 }
 
@@ -104,13 +104,20 @@
 }
 
 .optMenu .material-icons:hover {
-    opacity: 1;
+    opacity: 11;
 }
 
 .costomModal {
-    top: 3% !important;
+    top: 6% !important;
     text-shadow: none !important;
     min-width: 60vw !important;
+    border-radius: 4px;
+    height: 89vh;
+}
+
+.modal-backdrop {
+    background-color: transparent;
+    z-index: 11;
 }
 
 

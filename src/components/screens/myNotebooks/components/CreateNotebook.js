@@ -6,8 +6,7 @@ import '../css/createNotebook.css'
 function CreateNotebook() {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { addNotebooks } = Context;
-    // const [notebookInfo, setNotebookInfo] = useState({notebookTitle:'',notebookCover:3})
+    const { addNotebooks,setLoading } = Context;
     const [notebookCover, setnotebookCover] = useState(Math.round(18 * Math.random()))
     const [notebookTitle, setnotebookTitle] = useState("")
     const [isEmpty, setIsEmpty] = useState(false)
@@ -15,6 +14,7 @@ function CreateNotebook() {
     const submitNotebook = (e) => {
         e.preventDefault()
         // eslint-disable-next-line
+        setLoading(true)
         if (!notebookTitle.length == 0) {
             addNotebooks({ notebookTitle, notebookCover })
             setnotebookTitle('')

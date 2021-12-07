@@ -176,9 +176,8 @@
 .spiral {
     z-index: 9;
     width: 12%;
-    height: 290px;
+    height: 246px;
     float: left;
     position: relative;
-    top: -21px;
     left: -9px;
 }

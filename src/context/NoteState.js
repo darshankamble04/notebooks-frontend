@@ -153,6 +153,7 @@ const { setLoading} = Context;
 
 
 
+
     return (
         <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor,show , setShow}}>
             {props.children}

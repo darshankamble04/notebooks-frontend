@@ -24,6 +24,9 @@ function Alert(){
 
     return (
     <div>
+      <div>
+            <h1>some error occure</h1>
+        </div>
       <button onClick={notify}>Notify!</button>
       <ToastContainer />
     </div>

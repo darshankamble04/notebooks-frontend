@@ -1,18 +1,18 @@
 .sidebar {
-    top: -4px;
     background-color: var(--main-bg-color);
     display: flex;
     position: relative;
-    padding-top: 4px;
-    padding-left: 10px;
-    z-index: 2;
+    /* top: -4px; */
+    padding-left: 5px;
+    z-index: 13 !important;
     flex-direction: column;
     justify-content: space-between;
     /* align-items: center; */
     /* width: 75px; */
     min-width: 10.5vw;
-    /* height: calc(100vh - 56px); */
-    height: 100.5%;
+    position: fixed;
+    height: calc(100% - 60px);
+    margin-top: 60px;
     font-size: 1rem;
     color: rgba(245, 245, 245, 0.493);
     font-family: 'Poppins', sans-serif;
@@ -33,7 +33,7 @@
     display: grid;
     grid-template-columns: 44px auto;
     align-items: center;
-    margin-top: 1px;
+    margin-top: 2px;
     margin-bottom: 2px;
     padding-left: 3px;
     cursor: pointer;
@@ -72,19 +72,122 @@
 
 /* responsive */
 
+
+/* home */
+
+.overflow-hidden {
+    overflow-x: hidden;
+}
+
 @media screen and (max-width: 1536px) {
     .sidebar {
-        min-width: 161.18px;
+        width: 161.18px;
     }
-    #setHeight {
-        /* height: calc(100vh - 60px);
-        height: 100vh; */
-        overflow-y: visible;
-        overflow-x: hidden;
+}
+
+@media screen and (max-width: 1333px) {
+    .searchNotebooks {
+        width: 280px !important;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .profile {
+        margin: 0 0vw 0 8px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .toggleSearch {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 888px) {
+    .toggleSearch {
+        display: none;
+    }
+    .searchBar-btn {
+        display: flex !important;
     }
     .sidebar {
-        top: 0;
+        display: flex !important;
     }
+    .container2 {
+        display: none;
+    }
+    /* notes */
+}
+
+@media screen and (max-width:436px) {
+    .search-btn {
+        /* display: none; */
+        position: relative;
+        right: -13.5vw;
+    }
+    .searchNotebooks {
+        width: 235px !important;
+        left: 40px !important;
+    }
+    .searchNotebooks {
+        border-radius: 4px;
+        background-color: var(--main-bg-light-color);
+        border: 1px solid rgb(93 93 93);
+        width: 22vw;
+        height: 38px;
+        padding: 0 59px 0 10px;
+    }
+    .toggleSearch-costom {
+        position: relative;
+        left: 51px;
+        top: 2px;
+        font-size: 2.5rem !important;
+        background-color: #212529;
+        width: 49px;
+        height: 49px;
+    }
+    .searchNotebooks {
+        border-radius: 4px;
+        position: relative;
+        left: 119px !important;
+        width: 296px !important;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .search-btn {
+        display: none;
+    }
+    .searchNotebooks {
+        width: 255px !important;
+        left: 50px !important;
+    }
+}
+
+@media screen and (max-width: 888px) {
+    .sidebar {
+        /* display: none; */
+        /* height: 100vh !important; */
+        /* position: unset; */
+        z-index: 13;
+    }
+    .mainContent {
+        width: 100vw !important;
+        margin-left: 0 !important;
+    }
+    #box {
+        width: 100vw !important;
+    }
+    .pageHeader {
+        padding: 2rem 0 1rem 0.8rem !important;
+    }
+    .W-90 {
+        width: 99% !important;
+    }
+}
+
+.W-90 {
+    width: 90% !important;
 }
 
 @media screen and (max-width: 824px) {
@@ -92,68 +195,27 @@
         /* display: none !important; */
         /* height: 100vh !important; */
     }
-    .setHeight {
+    /* .setHeight {
         overflow: visible !important;
     }
     .mainContent {
         width: 100vw !important;
-        /* background-color: red; */
+        background-color: red;
     }
     .pageHeader {
         height: 52px !important;
         padding: 2rem 0 1rem 1rem !important;
     }
-    #box {
-        width: 100vw !important;
-    }
+ */
 }
 
-@media screen and (max-width: 734px) {
-    .mainContent {
-        width: 110vw !important;
-        /* background-color: red; */
-    }
-    #setHeight {
-        height: 100vh !important;
-    }
-    .setHeight {
-        height: 110vh !important;
-    }
-    #box {
-        width: 100vw !important;
-    }
-}
-
-
-/* notebookcoll */
-
-.bookArrInsidecon {
-    width: 90%;
-}
-
-@media screen and (max-width: 664px) {
-    .mainContent {
-        width: 110vw !important;
-        /* background-color: red; */
-    }
-    #setHeight {
-        height: 100vh !important;
-    }
-    .setHeight {
-        height: 110vh !important;
-    }
-    .bookArrInsidecon {
-        width: 98% !important;
-    }
-}
-
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 728px) {
     .outline {
         width: 200px !important;
         height: 267px !important;
     }
     .spiral {
-        width: 12%;
+        width: 12% !important;
         height: 245px !important;
         top: 10px !important;
     }
@@ -163,10 +225,33 @@
 }
 
 
+/* notebookcoll */
+
+.bookArrInsidecon {
+    /* width: 90%; */
+}
+
+@media screen and (max-width: 670px) {
+    .pageBody {
+        margin: 5px !important;
+    }
+    .W-90 {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .pageBody {
+        width: 47% !important;
+        height: 207px !important;
+    }
+}
+
+
 /* Home */
 
 #box {
-    margin-bottom: 20px !important;
+    /* margin-bottom: 20px !important; */
 }
 
 @media (max-width: 612px) {
@@ -193,7 +278,7 @@
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 534px) {
     .outline {
         width: 178px !important;
         height: 243px !important;
@@ -204,20 +289,9 @@
         top: 0 !important;
         left: -9px;
     }
-    .mainContent {
-        width: 120vw !important;
-        /* background-color: red; */
-        height: 120vh !important;
-    }
-    #setHeight {
-        height: 100vh !important;
-    }
-    .setHeight {
-        height: 120vh !important;
-    }
-    .bookArrInsidecon {
-        width: 99% !important;
-    }
+}
+
+@media screen and (max-width: 490px) {
     #box {
         width: 100vw !important;
     }
@@ -232,28 +306,58 @@
         padding-top: 0 !important;
     }
     .bookArrange {
-        padding-left: 1rem;
-    }
-}
-
-@media screen and (max-width: 457px) {
-    .bookArrange {
         padding-left: 0 !important;
     }
 }
 
-@media screen and (max-width: 440px) {
+.w-90 {
+    width: 90%;
+}
+
+@media screen and (max-width: 485px) {
+    .w-90 {
+        width: 99%;
+    }
     .bookArrange {
+        /* padding-left: 0 !important; */
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .pageBody {
+        width: 270px !important;
+        height: 232px !important;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .outline {
+        width: 167px !important;
+        height: 226px !important;
+    }
+    .outline .inline {
+        /* color: red !important; */
+        filter: contrast(1.1);
+        box-shadow: inset -20px -3px 20px 5px #000000bd;
+    }
+    .spiral {
+        height: 226px !important;
+        left: -8px;
+    }
+    .outline .menu .material-icons {
+        font-size: 2rem;
+    }
+    /* .bookArrange {
         padding-left: 1rem !important;
     }
     .notebookColl {
         width: 110vw;
-    }
+    } */
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 420px) {
     .bookArrange {
-        padding-left: 1rem !important;
+        padding-left: 2rem !important;
     }
     .outline {
         width: 235px !important;
@@ -280,8 +384,19 @@
     } */
 }
 
+@media screen and (max-width: 328px) {
+    .outline {
+        width: 178px !important;
+        height: 243px !important;
+    }
+    .spiral {
+        width: 12%;
+        height: 246px !important;
+        top: 0 !important;
+        left: -9px;
+    }
+}
 
-/* 
 @media (min-width: 1024px) {
     #box p {
         width: 60%;
@@ -290,4 +405,4 @@
     #box .carousel-control-next {
         width: 5%;
     }
-} */
+}

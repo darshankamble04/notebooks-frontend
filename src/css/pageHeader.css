@@ -12,6 +12,14 @@
     /* -webkit-text-fill-color: #c2c2c2; */
 }
 
+.addBtn {
+    padding-left: 8px;
+    padding-bottom: 5px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: gray;
+}
+
 .subHeading {
     font-weight: 600;
     /* font-size: 1.6rem !important; */

@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function UserProfile() {
     const location = useLocation()
@@ -8,7 +9,7 @@ function UserProfile() {
     const webUrl = process.env.REACT_APP_WebUrl;
 
     const getUser = async () => {
-        // const response = await fetch(`https://notes-yard-backend.herokuapp.com/api/auth/getuser`, {
+        try{
         const response = await fetch(`${webUrl}/api/auth/getuser`, {
 
           method: 'POST',
@@ -18,6 +19,19 @@ function UserProfile() {
         })
         const json = await response.json()
         setUserData({name:json.name,email:json.email})
+    }
+    catch(error){
+        toast.error(`You're Offline`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme:'light'
+        });
+    }
       }
     useEffect(() => {
         getUser()

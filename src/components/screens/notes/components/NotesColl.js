@@ -14,7 +14,7 @@ function NotesColl() {
     return (
         <>
             <div className="d-flex bookArrange" >
-                <div className="d-flex" style={{width: "90%", flexWrap: "wrap" }}>
+                <div className="d-flex W-90" style={{ flexWrap: "wrap" }}>
                 {notes.map((e)=>{
                     return <Page key={e._id} id={e._id} data={e} color={e.color} date={e.date } title={e.title} description={e.description} />
                 })}

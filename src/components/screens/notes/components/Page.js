@@ -39,14 +39,14 @@ function Page(props) {
     return (
         <>
             <div className='pageBody' style={{backgroundColor:`${props.color}`}}>
-                <div className="content">
+                <div style={{cursor:'pointer'}} data-bs-toggle="modal" data-bs-target="#staticBackdrop01" onClick={() => { toggleClick(props.data) }} className="content">
                     <h6>{props.title}</h6>
                     <p>{props.description}</p>
                 </div>
                 <div className="operations">
                     <span data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onClick={() => { toggleClick(props.data) }} className="material-icons" >edit</span>
 
-                    <span data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span>
+                    <span onClick={() => { toggleClick(props.data) }} data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span>
                     <span className="material-icons" onClick={() => { deleteNote(props.id) }}>delete</span>
                 </div>
                 <div className="updatedDate">
@@ -66,6 +66,7 @@ function Page(props) {
                     </div>
                 </div>
             </div>
+
             {/* Edit Note */}
             <div className="modal fade" style={{ overflowY: "hidden" }} id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div style={{ backgroundColor: `${color}` }} className="costomModal modal-dialog modal-dialog-scrollable">
