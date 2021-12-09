@@ -1,6 +1,7 @@
 .notebookColl {
-    height: max-content;
-    justify-content: space-between !important;
+    /* min-height: calc(100vh - 60px - 180px) !important; */
+    height: max-content !important;
+    /* justify-content: space-between !important; */
 }
 
 .bookArrange {

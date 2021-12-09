@@ -14,8 +14,29 @@
     font-weight: 600;
 }
 
-.navbar-brand:hover {
+.navbar-brand a:hover {
     color: rgb(255, 255, 255) !important;
+}
+
+.reloadIcon {
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+    transform: rotate(90deg);
+    /* font-size: 1.rem; */
+}
+
+.rotateRefrash {
+    animation: rotate 1s 2 forwards;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .rightHeaders {

@@ -55,6 +55,7 @@
 
 .open {
     overflow: hidden;
+    display: flex;
     animation: open 350ms 1 forwards;
 }
 

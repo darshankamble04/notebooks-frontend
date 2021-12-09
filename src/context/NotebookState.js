@@ -2,13 +2,13 @@ import React, { useState } from "react"
 import NotebookContext from "./NotebookContext"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Alert from '../components/common/Alert'
 const NotebookState = (props) => {
 
   const webUrl = process.env.REACT_APP_WebUrl;
 
   const initialNotebooks = [];
   const [notebooks, setNotebooks] = useState(initialNotebooks);
+  const [bookmarkedNotebooks, setBookmarkedNotebooks] = useState(initialNotebooks)
   const [loading, setLoading] = useState(false)
 
   // Get Notebooks :
@@ -54,7 +54,7 @@ const NotebookState = (props) => {
         },
       })
       const json = await response.json()
-      setNotebooks(json)
+      setBookmarkedNotebooks(json)
       setLoading(false)
     } catch (error) {
       toast.error(`You're Offline`, {
@@ -172,6 +172,7 @@ const NotebookState = (props) => {
         },
       })
       getNotebooks()
+      getBookmarkedNotebooks()
       toast.success('Bookmark Added!', {
         position: "top-right",
         autoClose: 5000,
@@ -210,6 +211,7 @@ const NotebookState = (props) => {
         },
       })
       getNotebooks()
+      getBookmarkedNotebooks()
       toast.warn('Bookmark Removed!', {
         position: "top-right",
         autoClose: 5000,
@@ -282,7 +284,7 @@ const NotebookState = (props) => {
   //  esetdata, edata, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle
 
   return (
-    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey}}>
+    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey,bookmarkedNotebooks, setBookmarkedNotebooks}}>
       {props.children}
     </NotebookContext.Provider>
   )

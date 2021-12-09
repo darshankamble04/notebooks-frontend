@@ -10,12 +10,13 @@ import './css/notebook.css'
 
 function AllBookmarkNB() {
     const Context = useContext(NotebookContext)
-    const {notebooks, getBookmarkedNotebooks} = Context
+    const {getBookmarkedNotebooks,SearchKey,bookmarkedNotebooks} = Context
 
     useEffect(() => {
         getBookmarkedNotebooks()
         // eslint-disable-next-line
     }, [])
+    const outline= document.getElementsByClassName("outline").length
     return (
         <>
             <div>
@@ -28,10 +29,22 @@ function AllBookmarkNB() {
                         <PageHeader header="Bookmarks" />
                         <div className="notebookColl d-flex flex-column justify-content-between ">
                             <div className="d-flex bookArrange" >
-                                <div className="d-flex" style={{ width: "90%", flexWrap: "wrap" }}>
-                                    {notebooks.map((e) => {
-                                        return <Notebook key={e._id} id={e._id} data={e} title={e.notebookTitle} cover={e.notebookCover} />
+                                <div className="d-flex w-90" style={{ flexWrap: "wrap" }}>
+                                    {// eslint-disable-next-line
+                                    bookmarkedNotebooks.map((e) => {
+                                         if (SearchKey !== "") {
+                                            const title = e.notebookTitle.toLowerCase()
+                                            if (title.includes(SearchKey)) {
+                                                return <Notebook key={e._id} id={e._id} data={e} title={e.notebookTitle} cover={e.notebookCover} />
+                                            }
+                                        } else {
+                                            return <Notebook key={e._id} id={e._id} data={e} title={e.notebookTitle} cover={e.notebookCover} />
+                                        }
                                     })}
+
+{
+                          SearchKey !== "" && outline===0?<h4 className="notFound">Notebook not found</h4>:""
+                     }
                                 </div>
                             </div>
                         <Footer />

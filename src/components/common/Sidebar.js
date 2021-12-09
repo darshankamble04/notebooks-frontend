@@ -57,15 +57,16 @@ function Sidebar() {
             }
             </div>
             <div>
-                <label className={`sidebarLabel ${location.pathname === '/contactus'? 'sidebarLabelSelected':''}`}>
+            {localStorage.getItem('token')?
+                <Link to="/contactus" className={`sidebarLabel ${location.pathname === '/contactus'? 'sidebarLabelSelected':''}`}>
                     <span class="mx-2 material-icons">contact_support</span>
                     <span>Contact Us</span>
-                </label>
-                <label className={`sidebarLabel ${location.pathname === '/about'? 'sidebarLabelSelected':''}`}>
+                </Link>:""}
+                <Link to="/aboutus" className={`sidebarLabel ${location.pathname === '/aboutus'? 'sidebarLabelSelected':''}`}>
                     <span class="mx-2 material-icons">domain</span>
                     {/* <span style={{fontWeight:'600'}} class="material-icons">logout</span> */}
                     <span>About Us</span>
-                </label>
+                </Link>
                 {/* <label className={`sidebarLabel ${location.pathname === '/'? 'sidebarLabelSelected':''}`}>
                     <img className="mx-2" src={logoutIcon} alt="" />
                     <span style={{fontWeight:'600'}} class="material-icons">logout</span>

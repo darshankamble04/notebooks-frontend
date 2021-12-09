@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import NotebookContext from '../../../context/NotebookContext'
 import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
@@ -41,10 +41,10 @@ function Login() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme:'light'
+                theme: 'light'
             });
             go("/mynotebooks")
-        }else if (json.notAuth){
+        } else if (json.notAuth) {
             toast.error(`${json.msg}`, {
                 position: "top-right",
                 autoClose: 5000,
@@ -53,9 +53,9 @@ function Login() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme:'light'
+                theme: 'light'
             });
-        }else {
+        } else {
             toast.warn(`Invalid credentials`, {
                 position: "top-right",
                 autoClose: 5000,
@@ -64,7 +64,7 @@ function Login() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme:'light'
+                theme: 'light'
             });
             setCredentials({ email: '', password: '' })
 
@@ -74,33 +74,33 @@ function Login() {
 
     return (
         <>
-        <div>
-            <Headers />
-        </div>
-        <div className="d-flex setHeight">
-            <Sidebar />
-            <div className="d-flex flex-column">
-                <main className="mainContent d-flex flex-column" style={{overflowY:'hidden'}}>
-                    <div className="notebookColl d-flex flex-column justify-content-between">
-                            <div className="container loginOutline" style={{minHeight: "72vh"}}>
-                               <form action="#">
-                    <div className="title">Login</div>
-                    <div className="input-box underline">
-                        <input value={credentials.email} name="email" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Email" required />
-                        <div className="underline"></div>
-                    </div>
-                    <div className="input-box">
-                        <input value={credentials.password} name="password" onChange={(e) => { toggleChange(e) }} type="password" placeholder="Enter Your Password" required />
-                        <div className="underline"></div>
-                        <div className="option3"><Link to='/forgotpassword'>Forgot Password?</Link></div>
-                    </div>
-                    <div style={{marginTop:'30px'}} className="d-flex align-items-center justify-content-between">
-                        <div className="input-box button">
-                            <input ref={clicked} onClick={(e) => { toggleSubmit(e) }} type="submit" name="" value="Continue" />
-                        </div>
-                        <div className="option">or</div>
-                        <div className="google">
-                            {/* <GoogleLogin
+            <div>
+                <Headers />
+            </div>
+            <div className="d-flex setHeight">
+                <Sidebar />
+                <div className="d-flex flex-column">
+                    <main className="mainContent d-flex flex-column" style={{ overflowY: 'hidden' }}>
+                        <div className="notebookColl d-flex flex-column justify-content-between">
+                            <div className="container loginOutline" style={{ minHeight: "72vh" }}>
+                                <form action="#">
+                                    <div className="title">Login</div>
+                                    <div className="input-box underline">
+                                        <input value={credentials.email} name="email" onChange={(e) => { toggleChange(e) }} type="text" placeholder="Enter Your Email" required />
+                                        <div className="underline"></div>
+                                    </div>
+                                    <div className="input-box">
+                                        <input value={credentials.password} name="password" onChange={(e) => { toggleChange(e) }} type="password" placeholder="Enter Your Password" required />
+                                        <div className="underline"></div>
+                                        <div className="option3"><Link to='/forgotpassword'>Forgot Password?</Link></div>
+                                    </div>
+                                    <div style={{ marginTop: '30px' }} className="d-flex align-items-center justify-content-between">
+                                        <div className="input-box button">
+                                            <input ref={clicked} onClick={(e) => { toggleSubmit(e) }} type="submit" name="" value="Continue" />
+                                        </div>
+                                        {/* <div className="option">or</div> */}
+                                        <div className="google">
+                                            {/* <GoogleLogin
                                 onClick={setGoogleLogin(true)}
                                 clientId="73289997498-ldv2fbop9ck81a1renoih54hbqejpii7.apps.googleusercontent.com"
                                 buttonText="Login"
@@ -111,17 +111,17 @@ function Login() {
                             >
                                 <Link to="#">Sign in With Google</Link>
                             </GoogleLogin> */}
-                        </div>
-                    </div>
-                </form>
-                <div className="option2">New User? <Link to='/register' className="">Register</Link></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div className="option2">New User? <Link to='/register' className="">Register</Link></div>
                             </div>
-                    <Footer />
-                    </div>
-                </main>
+                            <Footer />
+                        </div>
+                    </main>
+                </div>
             </div>
-        </div>
-    </>
+        </>
     )
 }
 

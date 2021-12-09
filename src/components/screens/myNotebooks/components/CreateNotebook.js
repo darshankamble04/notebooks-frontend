@@ -13,8 +13,8 @@ function CreateNotebook() {
 
     const submitNotebook = (e) => {
         e.preventDefault()
-        // eslint-disable-next-line
         setLoading(true)
+        // eslint-disable-next-line
         if (!notebookTitle.length == 0) {
             addNotebooks({ notebookTitle, notebookCover })
             setnotebookTitle('')
@@ -55,7 +55,7 @@ function CreateNotebook() {
                     </div>
 
                     <div className="coverImgs">
-                        <CoverImgs setnotebookCover={setnotebookCover} />
+                        <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
                     </div>
                 </div>
             </div>

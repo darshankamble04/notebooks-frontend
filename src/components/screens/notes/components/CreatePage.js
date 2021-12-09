@@ -62,7 +62,7 @@ function CreatePage() {
 
                                <div style={{ backgroundColor: `${color}` }} onClick={()=>{!show?setShow(true):setShow(false)}} className="colorBox" ></div>
 
-    <div className={`${show?'d-flex visible open':'d-flex invisible'}`}>
+    <div className={`${show?'visible open':'d-none'}`}>
             <div onClick={()=>{setShow(false); setColor('rgb(255,156,0)')}} style={{ backgroundColor: 'rgb(255,156,0)' }} class="dropdown-item colors"></div>
             <div onClick={()=>{setShow(false); setColor('rgb(179,181,182)')}} style={{ backgroundColor: 'rgb(179,181,182)' }} class="dropdown-item colors"></div>
             <div onClick={()=>{setShow(false); setColor('rgb(0,150,168)')}} style={{ backgroundColor: 'rgb(0,150,168)' }} class="dropdown-item colors"></div>
@@ -86,7 +86,7 @@ function CreatePage() {
                                 </div>
                             </div> */}
 
-                            <div className="d-flex align-items-center">
+                            <div className="d-flex rightModalHeader align-items-center">
                                 {/* <button type="button" onClick={toggleClick} className="btn btn-primary"> Add Note </button> */}
                                 <span className={`material-icons mx-2 
                                 ${ // eslint-disable-next-line

@@ -5,7 +5,7 @@ import NotebookContext from '../../../../context/NotebookContext'
 
 function NotebookColl() {
     const Context = useContext(NotebookContext)
-    const { notebooks, getNotebooks, SearchKey, setSearchKey } = Context
+    const { notebooks, getNotebooks, SearchKey } = Context
     console.log(SearchKey)
 
     useEffect(() => {
@@ -14,7 +14,6 @@ function NotebookColl() {
         // eslint-disable-next-line
     }, [])
     const outline= document.getElementsByClassName("outline").length
-    console.log(outline)
     return (
         <>
             {/* <div className="d-flex bookArrange" >
@@ -45,8 +44,9 @@ function NotebookColl() {
 
             <div className="d-flex bookArrange" >
                 <div id="bookArrange" className="d-flex w-90" style={{ flexWrap: "wrap" }}>
-                    {notebooks.map((e) => {
-                        if (SearchKey != "") {
+                    {// eslint-disable-next-line
+                      notebooks!==undefined && notebooks.map((e) => {
+                        if (SearchKey !== "") {
                             const title = e.notebookTitle.toLowerCase()
                             if (title.includes(SearchKey)) {
                                 return <Notebook key={e._id} id={e._id} data={e} title={e.notebookTitle} cover={e.notebookCover} />
@@ -58,10 +58,10 @@ function NotebookColl() {
                     }
 
                      {
-                        SearchKey == "" ? <CreateNotebook />:""
+                        SearchKey === "" ? <CreateNotebook />:""
                      }
                      {
-                          SearchKey !== "" && outline==0?<h4 className="notFound">Notebook not found</h4>:""
+                          SearchKey !== "" && outline===0?<h4 className="notFound">Notebook not found</h4>:""
                      }
                      
                 </div>

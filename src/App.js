@@ -16,6 +16,8 @@ import AllBookmarkNB from './components/screens/myNotebooks/AllBookmarkNB';
 import AllNotes from './components/screens/notes/AllNotes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ContactUs from './components/screens/ContactUs';
+import AboutUs from './components/screens/AboutUs/AboutUs';
 function App() {
   return (
     <>
@@ -27,6 +29,8 @@ function App() {
               <Route Exact path="/mynotebooks" element={<MyNotebooks />}></Route>
               <Route Exact path="/mynotebooks/:id/:name" element={<Notes />}></Route>
               <Route Exact path="/allnotes" element={<AllNotes />}></Route>
+              <Route Exact path="/contactus" element={<ContactUs />}></Route>
+              <Route Exact path="/aboutus" element={<AboutUs />}></Route>
               <Route Exact path="/register" element={<Register />}></Route>
               <Route Exact path="/login" element={<Login />}></Route>
               <Route Exact path="/resetpassword" element={<ResetPass />}></Route>
