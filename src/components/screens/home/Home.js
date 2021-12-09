@@ -15,7 +15,7 @@ function Home() {
                 <Sidebar />
                 <div className="d-flex flex-column overflow-hidden">
                     {/* <PageHeader /> */}
-                    <main className="mainContent d-flex flex-column">
+                    <main style={{overflow:'hidden'}} className="mainContent d-flex flex-column">
                         <div>
                             <section id="box" class="d-flex flex-column justify-content-end align-items-center">
                                 <div>
@@ -44,31 +44,9 @@ function Home() {
                                     <g class="wave3"><use href="#wave-path" x="50" y="9" fill="#fff" /></g>
                                 </svg>
                             </section>
-                            <h1>content</h1>
-                            <img style={{ width: "25vw" }} src="https://www.deldsim.com/img/homepage/deldsim-study-materials.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/Arsha/assets/img/hero-img.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/features-3.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/features-2.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/features.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/values-1.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/values-2.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/values-3.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/FlexStart/assets/img/hero-img.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/eNno/assets/img/hero-img.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/Scaffold/assets/img/hero-bg.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/Scaffold/assets/img/hero-img.png" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/SoftLand/assets/img/undraw_svg_3.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/SoftLand/assets/img/undraw_svg_2.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/Rapid/assets/img/features-1.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/NewBiz/assets/img/hero-img.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/NewBiz/assets/img/hero-img.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/NewBiz/assets/img/about-extra-1.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://bootstrapmade.com/demo/templates/NewBiz/assets/img/about-img.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="https://www.deldsim.com/img/homepage/deldsim-circuit-tutorial-preview.svg" alt="" />
-                            <img style={{ width: "25vw" }} src="" alt="" />
-                            <img style={{ width: "25vw" }} src="" alt="" />
+                           
                         </div>
-                        <Footer/>
+                        {/* <Footer/> */}
                     </main>
                 </div>
             </div>
