@@ -28,8 +28,8 @@ function Page(props) {
     }
 
     const toggleSubmit = () => {
+        setLoading(true)        
         // eslint-disable-next-line
-
         if (!NoteTitle.length == 0) {
             const { id } = editNoteVal
             editNote({ title: NoteTitle, description: NoteDescription, id })
@@ -52,13 +52,15 @@ function Page(props) {
 
 
     const letsCopy = (which) => {
-        if (which === 'URL') {
-            navigator.clipboard.writeText(link)
-        }
-        else {
-            navigator.clipboard.writeText(`<iframe src=${link} style="border:none;width:100%"></iframe>`)
-        }
-        toast.success(`Link Copied Successfully`, {
+        try {
+            
+            if (which === 'URL') {
+                navigator.clipboard.writeText(link)
+            }
+            else {
+                navigator.clipboard.writeText(`<iframe src=${link} style="border:none;width:100%"></iframe>`)
+            }
+            toast.success(`Link Copied Successfully`, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -68,6 +70,19 @@ function Page(props) {
             progress: undefined,
             theme: 'light'
         });
+    } catch (error) {
+        toast.error(`Could not copy text`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+    });
+        
+    }
     }
 
     return (

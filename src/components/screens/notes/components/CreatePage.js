@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { toast } from 'react-toastify'
+import NotebookContext from '../../../../context/NotebookContext'
 import NoteContext from '../../../../context/NoteContext'
 import '../css/createPage.css'
 
 function CreatePage() {
-    const Context = useContext(NoteContext)
-    const { NoteTitle, setNoteTitle, color, setColor, NoteDescription, setNoteDescription, addNote ,show , setShow} = Context
+    const context = useContext(NoteContext)
+    const { NoteTitle, setNoteTitle, color, setColor, NoteDescription, setNoteDescription, addNote ,show , setShow} = context
 
+    const Context = useContext(NotebookContext)
+    const { setLoading } = Context;
 
     const toggleClick = () => {
         setNoteTitle('')
@@ -13,8 +17,6 @@ function CreatePage() {
     }
 
     const closeRef = useRef(null)
-    // eslint-disable-next-line
-    const [isEmpty, setIsEmpty] = useState(false)
 
     useEffect(() => {
         setNoteTitle('')
@@ -25,15 +27,24 @@ function CreatePage() {
     const toggleDone = () => {
         // eslint-disable-next-line
         if (!NoteTitle.length == 0) {
+            setLoading(true)
             addNote({ title: NoteTitle, description: NoteDescription })
             closeRef.current.click()
             setNoteTitle(' ')
             setNoteDescription(' ')
             setShow(false)
             closeRef.current.click()
-            setIsEmpty(false)
         } else {
-            setIsEmpty(true)
+            toast.error(`Note Title cannot be blank`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+            });
         }
     }
     console.log(color)

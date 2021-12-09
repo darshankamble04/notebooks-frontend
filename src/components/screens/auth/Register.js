@@ -25,10 +25,11 @@ function Register() {
         setLoading(true)
         // setCredentials({email:credentials.email,password:credentials.password})
         if (credentials.password === credentials.cpassword) {
-
-            const response = await fetch(`${webUrl}/api/auth/createuser`, {
-                method: 'POST',
-                headers: {
+            try {
+                
+                const response = await fetch(`${webUrl}/api/auth/createuser`, {
+                    method: 'POST',
+                    headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password }),
@@ -60,6 +61,18 @@ function Register() {
                 });
                 go('/login')
             }
+        } catch (error) {
+            toast.error(`You're Offline`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+              });
+        }
         }
         else {
             setnotMatch(true);

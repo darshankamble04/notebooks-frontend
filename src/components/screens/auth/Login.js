@@ -21,10 +21,11 @@ function Login() {
     }
     const toggleSubmit = async (e) => {
         e.preventDefault()
-        console.log('clicked submit')
-        const response = await fetch(`${webUrl}/api/auth/login`, {
-            method: 'POST',
-            headers: {
+        
+        try {
+            const response = await fetch(`${webUrl}/api/auth/login`, {
+                method: 'POST',
+                headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email: credentials.email, password: credentials.password }),
@@ -67,8 +68,20 @@ function Login() {
                 theme: 'light'
             });
             setCredentials({ email: '', password: '' })
-
+            
         }
+    } catch (error) {
+        toast.error(`You're Offline`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+          });
+    }
 
     }
 

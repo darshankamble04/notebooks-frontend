@@ -19,8 +19,10 @@ const { setLoading} = Context;
     // GET NOTE user specified :~
     // API
     const getuserNotes = async () => {
-        setLoading(true)
-        const response = await fetch(`${webUrl}/api/notes/fetchusernotes`, {
+        try {
+            
+            setLoading(true)
+            const response = await fetch(`${webUrl}/api/notes/fetchusernotes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,15 +32,19 @@ const { setLoading} = Context;
         const json = await response.json()
         setUserNotes(json)
         setLoading(false)
-        
+    } catch (error) {
+       console.error(error)
+    }
     }
     // GET NOTE :~
     // API
     const getNotes = async () => {
-        setLoading(true)
-        let pathname = window.location.pathname;
+        try {
+            
+            setLoading(true)
+            let pathname = window.location.pathname;
         pathname = pathname.split('/')
-
+        
         console.log(pathname[2])
         const response = await fetch(`${webUrl}/api/notes/${pathname[2]}/fetchallnotes`, {
             method: 'GET',
@@ -50,19 +56,24 @@ const { setLoading} = Context;
         const json = await response.json()
         setNotes(json)
         setLoading(false)
-
+        
+    } catch (error) {
+       console.error(error)
     }
+}
     const [color, setColor] = useState("rgb(179, 181, 182)")
 
     // ADD NOTE :~
     const addNote = async (e) => {
-        const { title, description } = e;
-        let pathname = window.location.pathname;
+        try {
+            
+            const { title, description } = e;
+            let pathname = window.location.pathname;
         pathname = pathname.split('/')
         let date = new Date()
         console.log(date)
         // API
-         await fetch(`${webUrl}/api/notes/${pathname[2]}/addnote`, {
+        await fetch(`${webUrl}/api/notes/${pathname[2]}/addnote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,19 +93,24 @@ const { setLoading} = Context;
             progress: undefined,
             theme:'light'
         });
+    } catch (error) {
+        console.error(error)
     }
-
+    }
+    
     // DELETE NOTE  :~
     const deleteNote = async (id) => {
-        // API
-        await fetch(`${webUrl}/api/notes/deletenote/${id}`, {
+        try {
+            
+            // API
+            await fetch(`${webUrl}/api/notes/deletenote/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token":localStorage.getItem("token")
             },
         })
-
+        
         // CLIENT SIDE SCRIPTING
         const updatedNotes = notes.filter((e) => { return e._id !== id })
         setNotes(updatedNotes)
@@ -110,14 +126,28 @@ const { setLoading} = Context;
             progress: undefined,
             theme:'light'
         });
-
+        
+    } catch (error) {
+        toast.error(`You're Offline`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+          });
+    }
     }
 
     // EDIT NOTE  :~
     const editNote = async (e) => {
         const { title, description,id} = e
-        // API
-        await fetch(`${webUrl}/api/notes/updatenote/${id}`, {
+        try {
+            
+            // API
+            await fetch(`${webUrl}/api/notes/updatenote/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,13 +167,18 @@ const { setLoading} = Context;
             progress: undefined,
             theme:'light'
         });
-
+        
+    } catch (error) {
+        console.log(error)
+    }
     }
     const [link, setLink] = useState('')
 
     const letsShare = async (id) => {
-        setLoading(true)
-        const response = await fetch(`${webUrl}/api/notes/sharenote/${id}`, {
+        try {
+            
+            setLoading(true)
+            const response = await fetch(`${webUrl}/api/notes/sharenote/${id}`, {
             // const response = await fetch(`/api/auth/forgotpassword`, {
             method: 'POST',
             headers: {
@@ -155,6 +190,18 @@ const { setLoading} = Context;
         const json = await response.json()
         setLink(json)
         setLoading(false)
+    } catch (error) {
+        toast.error(`You're Offline`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+          });
+    }
     }
 
     const [editNoteVal, setEditNoteVal] = useState({ title: '', description: '', id: '' })

@@ -47,8 +47,9 @@ function ContactUs() {
     }
     const toggleSubmit = async (e) => {
         e.preventDefault()
-        setLoading(true)
-        // setCredentials({email:credentials.email,password:credentials.password})
+        try {
+            setLoading(true)
+            // setCredentials({email:credentials.email,password:credentials.password})
 
             const response = await fetch(`${webUrl}/api/auth/contactus`, {
                 method: 'POST',
@@ -83,9 +84,22 @@ function ContactUs() {
                     theme:'light'
                 });
             }
-    setLoading(false)
-        
-    }
+            setLoading(false)
+            
+        } catch (error) {
+            toast.error(`You're Offline`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+              });
+        }
+            
+        }
 
       useEffect(() => {
         getUser()

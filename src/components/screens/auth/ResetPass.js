@@ -21,9 +21,9 @@ function ResetPass() {
         e.preventDefault()
         setLoading(true)
         // setCredentials({email:credentials.email,password:credentials.password})
-
-            const response = await fetch(`${webUrl}/api/auth/resetpassword`, {
-            // const response = await fetch(`/api/auth/resetpassword`, {
+            try {
+                const response = await fetch(`${webUrl}/api/auth/resetpassword`, {
+                    // const response = await fetch(`/api/auth/resetpassword`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,9 +53,22 @@ function ResetPass() {
                     progress: undefined,
                     theme:'light'
                 });
-
+                
             }
             setLoading(false)
+            
+        } catch (error) {
+            toast.error(`You're Offline`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+              });
+        }
     }
     return (
         <>

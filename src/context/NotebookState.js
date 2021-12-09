@@ -57,16 +57,7 @@ const NotebookState = (props) => {
       setBookmarkedNotebooks(json)
       setLoading(false)
     } catch (error) {
-      toast.error(`You're Offline`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      });
+      console.error(error)
     }
   }
 
@@ -98,16 +89,7 @@ const NotebookState = (props) => {
         theme: 'light'
       });
     } catch (error) {
-      toast.error(`You're Offline`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      });
+      console.error(error)
     }
 
   }
@@ -146,16 +128,7 @@ const NotebookState = (props) => {
         theme: 'light'
       });
     } catch (error) {
-      toast.error(`You're Offline`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      });
+     console.error(error)
     }
   }
 
@@ -185,16 +158,7 @@ const NotebookState = (props) => {
       });
 
     } catch (error) {
-      toast.error(`You're Offline`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      });
+     console.error(error)
     }
   }
 
@@ -260,16 +224,7 @@ const NotebookState = (props) => {
         theme: 'light'
       });
     } catch (error) {
-      toast.error(`You're Offline`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      });
+     console.error(error)
     }
   }
 
