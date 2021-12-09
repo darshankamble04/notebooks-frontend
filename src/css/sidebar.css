@@ -442,7 +442,7 @@
     }
 }
 
-@media screen and (max-width: 328px) {
+@media screen and (max-width: 304px) {
     .bookArrange {
         padding-left: 0 !important;
     }
