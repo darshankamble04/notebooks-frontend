@@ -139,6 +139,23 @@ const { setLoading} = Context;
         });
 
     }
+    const [link, setLink] = useState('')
+
+    const letsShare = async (id) => {
+        setLoading(true)
+        const response = await fetch(`${webUrl}/api/notes/sharenote/${id}`, {
+            // const response = await fetch(`/api/auth/forgotpassword`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem("token")
+            },
+            // body: JSON.stringify({email: credentials.email, newpassword: credentials.newpassword }),
+        })
+        const json = await response.json()
+        setLink(json)
+        setLoading(false)
+    }
 
     const [editNoteVal, setEditNoteVal] = useState({ title: '', description: '', id: '' })
 
@@ -155,7 +172,7 @@ const { setLoading} = Context;
 
 
     return (
-        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor,show , setShow}}>
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes,editNoteVal, setEditNoteVal,  noteVal, setNoteVal ,NoteTitle, setNoteTitle,NoteDescription, setNoteDescription ,getuserNotes,userNotes,notebookCover, setnotebookCover,notebookTitle, setnotebookTitle,color, setColor,show , setShow,letsShare,link, setLink}}>
             {props.children}
         </NoteContext.Provider>
     )

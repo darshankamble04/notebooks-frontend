@@ -1,11 +1,16 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef} from 'react'
 import NoteContext from '../../../../context/NoteContext'
 import '../css/page.css'
 import '../css/createPage.css'
+import { toast } from 'react-toastify'
+import NotebookContext from '../../../../context/NotebookContext'
 
 function Page(props) {
-    const Context = useContext(NoteContext)
-    const { NoteTitle, editNote, color, setColor, show, setShow, editNoteVal, NoteDescription, deleteNote, setNoteDescription, setEditNoteVal, setNoteTitle } = Context
+    const context = useContext(NoteContext)
+    const { NoteTitle, editNote, color, setColor, show, setShow, editNoteVal, NoteDescription, deleteNote, setNoteDescription, setEditNoteVal, setNoteTitle,link,letsShare } = context
+
+    const Context = useContext(NotebookContext)
+    const { loading,setLoading } = Context;
     let date = new Date(props.date)
     date = date.toString()
     let arr = date.split(" ")
@@ -21,21 +26,50 @@ function Page(props) {
         setColor(data.color)
 
     }
-    const [isEmpty, setIsEmpty] = useState(false)
 
     const toggleSubmit = () => {
         // eslint-disable-next-line
+
         if (!NoteTitle.length == 0) {
             const { id } = editNoteVal
             editNote({ title: NoteTitle, description: NoteDescription, id })
             setShow(false)
             closeRef.current.click()
-            setIsEmpty(false)
 
         } else {
-            setIsEmpty(true)
+            toast.error(`Note Title cannot be blank`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+            });
         }
     }
+
+
+    const letsCopy = (which) => {
+        if (which === 'URL') {
+            navigator.clipboard.writeText(link)
+        }
+        else {
+            navigator.clipboard.writeText(`<iframe src=${link} style="border:none;width:100%"></iframe>`)
+        }
+        toast.success(`Link Copied Successfully`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+        });
+    }
+
     return (
         <>
             <div className='pageBody' style={{ backgroundColor: `${props.color}` }}>
@@ -46,13 +80,59 @@ function Page(props) {
                 <div className="operations">
                     <span data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onClick={() => { toggleClick(props.data) }} className="material-icons" >edit</span>
 
-                    <span onClick={() => { toggleClick(props.data) }} data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span>
+                    {/* <span onClick={() => { toggleClick(props.data) }} data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">visibility</span> */}
+
+                    {/* <span onClick={() => { toggleClick(props.data) }} data-bs-toggle="modal" data-bs-target="#staticBackdrop01" className="material-icons">insert_link</span> */}
+                    <i class="fas fa-link material-icons" onClick={() => { letsShare(props.id) }} data-bs-toggle="modal" data-bs-target="#sharenote"></i>
                     <span className="material-icons" onClick={() => { deleteNote(props.id) }}>delete</span>
                 </div>
                 <div className="updatedDate">
                     {month}{" "}{day}
                 </div>
             </div>
+
+            {/* share note */}
+            <div class="modal fade" id="sharenote" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Share Note</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    Sharable URL
+                                    <i onClick={() => { letsCopy('URL') }} style={{ paddingLeft: "9px", cursor: 'pointer' }} class="fas fa-copy"></i>
+                                </div>
+                                <div class="card-body">
+                                  {  loading && <div className="loader"></div>}
+                                {// eslint-disable-next-line
+                                    <a target="_blank" href={link} class="card-text">{link}</a>}
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    Embedded Code
+                                    <i onClick={() => { letsCopy('Code') }} style={{ paddingLeft: "9px", cursor: 'pointer' }} class="fas fa-copy"></i>
+                                </div>
+                                <div class="card-body">
+                                    <code class="card-text"> {`<iframe src=${link} style="border:none;width:100%"></iframe> `}</code>
+                                </div>
+                            </div>
+
+                            {/* <iframe src='http://localhost:5000/api/notes/sharenote/61adeb7da980d8205e8742fc/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub3RlIjp7InVzZXIiOiI2MWFkZTkwYmE5ODBkODIwNWU4NzQyYjciLCJpZCI6IjYxYWRlYjdkYTk4MGQ4MjA1ZTg3NDJmYyJ9LCJpYXQiOjE2MzkwNDY5MjV9.VAMXVgnhfbaNzwdi_83g-i5bUL55xd3gQ1EsBiw-BNU' style={{ border: "none", width: "100%" }}></iframe> */}
+                        </div>
+                        {/* <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                        </div> */}
+                    </div>
+                </div>
+            </div>
+
+
+            {/* view note */}
             <div className="modal fade" style={{ overflowY: "hidden" }} id="staticBackdrop01" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div style={{ backgroundColor: `${color}` }} className="costomModal modal-dialog modal-dialog-scrollable">
                     <div className="modal-content">
@@ -91,7 +171,7 @@ function Page(props) {
                                 </div>
 
                             </div>
-                            <div className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} style={{ zIndex: '11' }}>
+                            {/* <div className={`position-fixed bottom-0 end-0 p-3 ${isEmpty ? "visible" : "invisible"}`} style={{ zIndex: '11' }}>
                                 <div id="liveToast">
                                     <div className="toast-header">
                                         <small className="me-auto">
@@ -99,7 +179,7 @@ function Page(props) {
                                         </small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
 
                             <button ref={closeRef} type="button" className="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button>

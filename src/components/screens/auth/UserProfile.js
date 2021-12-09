@@ -32,6 +32,21 @@ function UserProfile() {
             theme:'light'
         });
     }
+}
+
+const logout =()=>{
+    localStorage.removeItem('token')
+    toast.success(`Logout Successfully`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme:'light'
+    });
+
       }
     useEffect(() => {
         getUser()
@@ -59,7 +74,7 @@ function UserProfile() {
                         {localStorage.getItem('token') ?
                             <div className="d-flex flex-column flex-center newUserShow">
                                     <Link to='/resetpassword' className="btn btn-secondary" style={{color:'#fff'}}>Reset Password?</Link>
-                                <Link to='/login' type="button" onClick={() => { localStorage.removeItem('token') }} className={`btn btn-danger justify-content-center d-flex my-2`}  style={{backgroundColor:'#a40e26'}}>
+                                <Link to='/login' type="button" onClick={logout} className={`btn btn-danger justify-content-center d-flex my-2`}  style={{backgroundColor:'#a40e26'}}>
                                     <span style={{ marginRight: '3px' }}>Logout</span>
                                     <span className="material-icons">logout</span>
                                 </Link>

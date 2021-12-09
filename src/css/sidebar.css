@@ -45,6 +45,10 @@
     color: #fff;
 }
 
+.sidebarLabel .mx-2 {
+    color: #fff !important;
+}
+
 .sidebarLabelSelected {
     background-color: rgb(50, 53, 72);
     /* color: rgb(0, 171, 201); */
@@ -53,6 +57,14 @@
 
 .sidebarLabelSelected:hover {
     color: #00d9ff !important;
+}
+
+.sidebarLabelSelected .mx-2 {
+    color: #fff !important;
+}
+
+.sidebarLabelSelected .mx-2:hover {
+    color: #fff !important;
 }
 
 .sidebarLabelSelected::after {
@@ -67,6 +79,14 @@
 
 .sidebarLabel img {
     width: 1.45rem;
+}
+
+.W-90 {
+    width: 90% !important;
+}
+
+.w-90 {
+    width: 90%;
 }
 
 
@@ -85,21 +105,39 @@
     }
 }
 
+@media screen and (max-width: 1374px) {
+    .titletoedit {
+        width: 245px !important;
+    }
+    .open {
+        display: grid !important;
+        grid-template-columns: auto auto auto;
+        position: absolute;
+        width: 128px !important;
+        left: 232px !important;
+        top: 60px !important;
+        animation: none;
+        background-color: #ffffff;
+        padding: 7px;
+    }
+    .colors {
+        margin-bottom: 3px;
+    }
+}
+
 @media screen and (max-width: 1333px) {
     .searchNotebooks {
         width: 280px !important;
     }
 }
 
-@media screen and (max-width: 624px) {
-    .profile {
-        margin: 0 0vw 0 8px;
+@media (min-width: 1024px) {
+    #box p {
+        width: 60%;
     }
-}
-
-@media screen and (max-width: 624px) {
-    .toggleSearch {
-        display: flex;
+    #box .carousel-control-prev,
+    #box .carousel-control-next {
+        width: 5%;
     }
 }
 
@@ -117,6 +155,46 @@
         display: none;
     }
     /* notes */
+}
+
+@media screen and (max-width: 888px) {
+    .sidebar {
+        /* display: none; */
+        /* height: 100vh !important; */
+        /* position: unset; */
+        z-index: 13;
+    }
+    .mainContent {
+        width: 100vw !important;
+        margin-left: 0 !important;
+    }
+    #box {
+        width: 100vw !important;
+    }
+    .pageHeader {
+        padding: 2rem 0 1rem 0.8rem !important;
+    }
+    .W-90 {
+        width: 99% !important;
+    }
+    .outlineC {
+        display: none;
+    }
+    .dottedpageOuter {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .profile {
+        margin: 0 0vw 0 8px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .toggleSearch {
+        display: flex;
+    }
 }
 
 @media screen and (max-width:436px) {
@@ -158,9 +236,6 @@
     .canvas {
         right: 0.5rem !important;
     }
-}
-
-@media screen and (max-width:370px) {
     .search-btn {
         display: none;
     }
@@ -170,61 +245,9 @@
     }
 }
 
-@media screen and (max-width: 888px) {
-    .sidebar {
-        /* display: none; */
-        /* height: 100vh !important; */
-        /* position: unset; */
-        z-index: 13;
-    }
-    .mainContent {
-        width: 100vw !important;
-        margin-left: 0 !important;
-    }
-    #box {
-        width: 100vw !important;
-    }
-    .pageHeader {
-        padding: 2rem 0 1rem 0.8rem !important;
-    }
-    .W-90 {
-        width: 99% !important;
-    }
-    .outlineC {
-        display: none;
-    }
-    .dottedpageOuter {
-        display: none !important;
-    }
-}
-
-.W-90 {
-    width: 90% !important;
-}
-
 @media screen and (max-width: 376px) {
     .titletoedit {
         max-width: 125px !important;
-    }
-}
-
-@media screen and (max-width: 1374px) {
-    .titletoedit {
-        width: 245px !important;
-    }
-    .open {
-        display: grid !important;
-        grid-template-columns: auto auto auto;
-        position: absolute;
-        width: 128px !important;
-        left: 232px !important;
-        top: 60px !important;
-        animation: none;
-        background-color: #ffffff;
-        padding: 7px;
-    }
-    .colors {
-        margin-bottom: 3px;
     }
 }
 
@@ -246,10 +269,6 @@
 
 /* notebookcoll */
 
-.bookArrInsidecon {
-    /* width: 90%; */
-}
-
 @media screen and (max-width: 670px) {
     .pageBody {
         margin: 5px !important;
@@ -264,13 +283,6 @@
         width: 47% !important;
         height: 207px !important;
     }
-}
-
-
-/* Home */
-
-#box {
-    /* margin-bottom: 20px !important; */
 }
 
 @media (max-width: 612px) {
@@ -327,10 +339,6 @@
     .bookArrange {
         padding-left: 0 !important;
     }
-}
-
-.w-90 {
-    width: 90%;
 }
 
 @media screen and (max-width: 485px) {
@@ -397,7 +405,7 @@
     } */
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 418px) {
     .outline {
         width: 144px !important;
         height: 196px !important;
@@ -464,15 +472,5 @@
     }
     .navbar-brand {
         display: none !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    #box p {
-        width: 60%;
-    }
-    #box .carousel-control-prev,
-    #box .carousel-control-next {
-        width: 5%;
     }
 }
