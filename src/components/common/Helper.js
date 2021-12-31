@@ -27,23 +27,23 @@ const CoverImgs=(props)=> {
     // value="" onKeyDown={()=>{return false}} 
     return (
         <>
-            <input className={`coverImg ${notebookCover===0?"addAfter":""}`} onClick={()=>{setnotebookCover(0)}} style={{ background: `url(${notebookCoverUrl[0]})` }}></input>
-            <input className={`coverImg ${notebookCover===1?"addAfter":""}`} onClick={()=>{setnotebookCover(1)}} style={{ background: `url(${notebookCoverUrl[1]})` }}></input>
-            <input className={`coverImg ${notebookCover===2?"addAfter":""}`} onClick={()=>{setnotebookCover(2)}} style={{ background: `url(${notebookCoverUrl[2]})` }}></input>
-            <input className={`coverImg ${notebookCover===3?"addAfter":""}`} onClick={()=>{setnotebookCover(3)}} style={{ background: `url(${notebookCoverUrl[3]})` }}></input>
-            <input className={`coverImg ${notebookCover===4?"addAfter":""}`} onClick={()=>{setnotebookCover(4)}} style={{ background: `url(${notebookCoverUrl[4]})` }}></input>
-            <input className={`coverImg ${notebookCover===5?"addAfter":""}`} onClick={()=>{setnotebookCover(5)}} style={{ background: `url(${notebookCoverUrl[5]})` }}></input>
-            <input className={`coverImg ${notebookCover===6?"addAfter":""}`} onClick={()=>{setnotebookCover(6)}} style={{ background: `url(${notebookCoverUrl[6]})` }}></input>
-            <input className={`coverImg ${notebookCover===7?"addAfter":""}`} onClick={()=>{setnotebookCover(7)}} style={{ background: `url(${notebookCoverUrl[7]})` }}></input>
-            <input className={`coverImg ${notebookCover===8?"addAfter":""}`} onClick={()=>{setnotebookCover(8)}} style={{ background: `url(${notebookCoverUrl[8]})` }}></input>
-            <input className={`coverImg ${notebookCover===9?"addAfter":""}`} onClick={()=>{setnotebookCover(9)}} style={{ background: `url(${notebookCoverUrl[9]})` }}></input>
-            <input className={`coverImg ${notebookCover===10?"addAfter":""}`} onClick={()=>{setnotebookCover(10)}} style={{ background: `url(${notebookCoverUrl[10]})` }}></input>
-            <input className={`coverImg ${notebookCover===11?"addAfter":""}`} onClick={()=>{setnotebookCover(11)}} style={{ background: `url(${notebookCoverUrl[11]})` }}></input>
-            <input className={`coverImg ${notebookCover===13?"addAfter":""}`} onClick={()=>{setnotebookCover(13)}} style={{ background: `url(${notebookCoverUrl[13]})` }}></input>
-            <input className={`coverImg ${notebookCover===14?"addAfter":""}`} onClick={()=>{setnotebookCover(14)}} style={{ background: `url(${notebookCoverUrl[14]})` }}></input>
-            <input className={`coverImg ${notebookCover===15?"addAfter":""}`} onClick={()=>{setnotebookCover(15)}} style={{ background: `url(${notebookCoverUrl[15]})` }}></input>
-            <input className={`coverImg ${notebookCover===16?"addAfter":""}`} onClick={()=>{setnotebookCover(16)}} style={{ background: `url(${notebookCoverUrl[16]})` }}></input>
-            <input className={`coverImg ${notebookCover===12?"addAfter":""}`} onClick={()=>{setnotebookCover(12)}} style={{ background: `url(${notebookCoverUrl[12]})` }}></input>
+            <div className={`coverImg ${notebookCover===0?"addAfter":""}`} onClick={()=>{setnotebookCover(0)}} style={{ background: `url(${notebookCoverUrl[0]})` }}></div>
+            <div className={`coverImg ${notebookCover===1?"addAfter":""}`} onClick={()=>{setnotebookCover(1)}} style={{ background: `url(${notebookCoverUrl[1]})` }}></div>
+            <div className={`coverImg ${notebookCover===2?"addAfter":""}`} onClick={()=>{setnotebookCover(2)}} style={{ background: `url(${notebookCoverUrl[2]})` }}></div>
+            <div className={`coverImg ${notebookCover===3?"addAfter":""}`} onClick={()=>{setnotebookCover(3)}} style={{ background: `url(${notebookCoverUrl[3]})` }}></div>
+            <div className={`coverImg ${notebookCover===4?"addAfter":""}`} onClick={()=>{setnotebookCover(4)}} style={{ background: `url(${notebookCoverUrl[4]})` }}></div>
+            <div className={`coverImg ${notebookCover===5?"addAfter":""}`} onClick={()=>{setnotebookCover(5)}} style={{ background: `url(${notebookCoverUrl[5]})` }}></div>
+            <div className={`coverImg ${notebookCover===6?"addAfter":""}`} onClick={()=>{setnotebookCover(6)}} style={{ background: `url(${notebookCoverUrl[6]})` }}></div>
+            <div className={`coverImg ${notebookCover===7?"addAfter":""}`} onClick={()=>{setnotebookCover(7)}} style={{ background: `url(${notebookCoverUrl[7]})` }}></div>
+            <div className={`coverImg ${notebookCover===8?"addAfter":""}`} onClick={()=>{setnotebookCover(8)}} style={{ background: `url(${notebookCoverUrl[8]})` }}></div>
+            <div className={`coverImg ${notebookCover===9?"addAfter":""}`} onClick={()=>{setnotebookCover(9)}} style={{ background: `url(${notebookCoverUrl[9]})` }}></div>
+            <div className={`coverImg ${notebookCover===10?"addAfter":""}`} onClick={()=>{setnotebookCover(10)}} style={{ background: `url(${notebookCoverUrl[10]})` }}></div>
+            <div className={`coverImg ${notebookCover===11?"addAfter":""}`} onClick={()=>{setnotebookCover(11)}} style={{ background: `url(${notebookCoverUrl[11]})` }}></div>
+            <div className={`coverImg ${notebookCover===13?"addAfter":""}`} onClick={()=>{setnotebookCover(13)}} style={{ background: `url(${notebookCoverUrl[13]})` }}></div>
+            <div className={`coverImg ${notebookCover===14?"addAfter":""}`} onClick={()=>{setnotebookCover(14)}} style={{ background: `url(${notebookCoverUrl[14]})` }}></div>
+            <div className={`coverImg ${notebookCover===15?"addAfter":""}`} onClick={()=>{setnotebookCover(15)}} style={{ background: `url(${notebookCoverUrl[15]})` }}></div>
+            <div className={`coverImg ${notebookCover===16?"addAfter":""}`} onClick={()=>{setnotebookCover(16)}} style={{ background: `url(${notebookCoverUrl[16]})` }}></div>
+            <div className={`coverImg ${notebookCover===12?"addAfter":""}`} onClick={()=>{setnotebookCover(12)}} style={{ background: `url(${notebookCoverUrl[12]})` }}></div>
         </>
     )
 }

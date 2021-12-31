@@ -32,10 +32,13 @@ function PageHeader(props) {
                 </div>
                 <h4 className="subHeading">{props.header}</h4>
                 {location.pathname === '/mynotebooks' &&
-                    <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"  className="material-icons addBtn">add</span>}
+                    <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"  className="tooltip material-icons addBtn">add
+                        <span class="tooltiptext2">Add Notebook</span> 
+                    </span>}
                  {location.pathname === `/mynotebooks/${pathname[2]}/${pathname[3]}` &&   
-                    <span data-bs-toggle="modal" data-bs-target="#staticBackdrop3" className="material-icons addBtn">add</span>}
-
+                    <span data-bs-toggle="modal" data-bs-target="#staticBackdrop3" className="tooltip material-icons addBtn">add
+                        <span class="tooltiptext2">Add Note</span>
+                    </span>}
             </div>
             
         </>

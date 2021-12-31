@@ -31,7 +31,7 @@ function Headers() {
         getBookmarkedNotebooks()
     }
     let pathname = window.location.pathname;
-        pathname = pathname.split('/')
+    pathname = pathname.split('/')
 
     return (
 
@@ -43,7 +43,13 @@ function Headers() {
                     <div className="bar2"></div>
                     <div className="bar3"></div>
                 </div>
-                <span class="navbar-brand" href="#"> <Link to="/"> Notebooks </Link> <span class={`material-icons reloadIcon ${rotate ? "rotateRefrash" : ""}`} onClick={toggleRefreshBtn} >refresh</span></span>
+                <span class="navbar-brand d-flex" href="#"> <Link to="/"> Notebooks </Link> 
+                    <span className="tooltip">
+                        <span class={`material-icons reloadIcon ${rotate ? "rotateRefrash" : ""}`} onClick={toggleRefreshBtn} >refresh
+                        </span>
+                            <span class="tooltiptext2">Refresh</span>
+                    </span>
+                </span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         {/* <li class="nav-item d-flex align-items-center">
@@ -54,7 +60,7 @@ function Headers() {
                 </div>
 
                 <div className="d-flex rightHeaders">
-{pathname[1]==='mynotebooks'||pathname[1]==='allnotes' ||pathname[1]==='allbookmarkednotebooks'?<SearchBar />:""}
+                    {pathname[1] === 'mynotebooks' || pathname[1] === 'allnotes' || pathname[1] === 'allbookmarkednotebooks' ? <SearchBar /> : ""}
                     <img data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight5" aria-controls="offcanvasRight" className="profile" src="https://w1.pngwing.com/pngs/386/684/png-transparent-face-icon-user-icon-design-user-profile-share-icon-avatar-black-and-white-silhouette.png" alt="" />
                 </div>
 

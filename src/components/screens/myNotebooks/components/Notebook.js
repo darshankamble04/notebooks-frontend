@@ -8,10 +8,11 @@ import NoteContext from '../../../../context/NoteContext'
 function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,setLoading} = Context;
+    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,loading,setLoading} = Context;
     const context = useContext (NoteContext)
     const {userNotes,getuserNotes} = context
     const [isEmpty, setIsEmpty] = useState(false)
+    const [onClickLoader,setOnClickLoader] = useState(false)
 
     const toggleEdit = (data) => {
         setEData({enotebookTitle:data.notebookCover , eid: data._id, enotebookCover: data.notebookTitle})
@@ -44,6 +45,7 @@ function Notebook(props) {
             addbookmark(props.id);
             setLoading(true);
         }
+
     }
     let pathname = window.location.pathname;
         pathname = pathname.split('/')
@@ -62,15 +64,29 @@ function Notebook(props) {
                             {userNotes.filter((e) => { return e.notebook === props.id }).length}
                             
                         </div>
+
+                <button className={`box-btn2 btn ${onClickLoader?"":"d-none"}`}>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                {" "} Loading...
+                </button>
+
                     </div>
                     {/* Toggle Bookmark */}
                     <div className={`${props.data.bookmark?"bookmarked slowDown1":"invisible"}`}>
                         <span className={`material-icons ${props.data.bookmark?"bookmarked slowDown2":"invisible"}`}>bookmark</span>
                     </div>
                     <Link to={`/${pathname[1]}`} className="menu d-flex flex-column position-absolute">
-                        <span onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="material-icons" >edit</span>
-                        <span onClick={toggleBookMarks} className="material-icons" style={{color:`${props.data.bookmark?"red":""}`}}>bookmark</span>
-                        <span onClick={() => { deleteNotebooks(props.id);setLoading(true); }} className="material-icons">delete</span>
+                        <span onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="tooltip  material-icons" >edit
+                            <span class="tooltiptext">Edit</span>
+                        </span>
+
+                        <span onClick={toggleBookMarks} className="tooltip material-icons " style={{color:`${props.data.bookmark?"red":""}`}}>bookmark
+                            <span class="tooltiptext">Bookmark</span>
+                        </span>
+
+                        <span onClick={() => { setOnClickLoader(true);deleteNotebooks(props.id);setLoading(true); }} className="tooltip  material-icons">delete
+                            <span class="tooltiptext">Delete</span>
+                        </span>
                     </Link>
                 </div>
             </Link>

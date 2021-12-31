@@ -64,12 +64,30 @@
 .coverImgs {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
-    /* background: aqua; */
-    /* margin-top: 12.2rem; */
-    /* padding: 0 0.3rem; */
-    padding: 0rem 0.3rem;
+    margin: 0 2px 0 2px;
+    /* z-index: unset; */
+    /* padding: 0rem 0.3rem !important; */
     height: 60vh;
     overflow-y: scroll;
+}
+
+.coverImgs::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    /* bottom: 0; */
+    height: 37px;
+    box-shadow: inset -6px 7px 6px 0px white;
+    z-index: 10;
+}
+
+.coverImgs::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 37px;
+    box-shadow: inset -2px -14px 13px 0px rgb(255 255 255);
 }
 
 .selectedImg {
@@ -91,7 +109,8 @@
 }
 
 .addAfter {
-    border: 5px solid #000 !important;
+    border: 5px solid rgb(38 42 46) !important;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 
@@ -178,4 +197,86 @@
 .addNotebook:hover {
     font-size: 2.4rem;
     color: #000000;
+}
+
+
+/* Tooltip container */
+
+.tooltip {
+    position: relative;
+    z-index: unset !important;
+    /* If you want dots under the hoverable text */
+}
+
+.pageHeader .tooltip,
+.cNavbar .tooltip {
+    opacity: 1;
+    /* If you want dots under the hoverable text */
+}
+
+.cNavbar .tooltiptext2 {
+    padding: 4px 6px !important;
+}
+
+
+/* Tooltip text */
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    /* width: 120px; */
+    background-color: #ffffff52;
+    color: #262a2e;
+    text-align: center;
+    padding: 6px 6px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    font-size: 0.9rem;
+    font-family: system-ui;
+    font-weight: 500;
+}
+
+.tooltip .tooltiptext2 {
+    visibility: hidden;
+    /* width: 120px; */
+    background-color: #cfcfcfa4;
+    color: #000000;
+    text-align: center;
+    padding: 9px 9px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    font-size: 0.9rem;
+    font-family: system-ui;
+    font-weight: 500;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:hover .tooltiptext2 {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext {
+    /* top: -5px; */
+    right: 105%;
+}
+
+.tooltip .tooltiptext2 {
+    /* top: -5px; */
+    left: 105%;
+}
+
+.box-btn2 {
+    position: relative;
+    top: -204%;
+    left: 7%;
+    color: #fff;
+    background-color: #262a2e;
+    border-color: #212529;
 }
