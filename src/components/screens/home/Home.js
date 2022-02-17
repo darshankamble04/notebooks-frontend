@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../../common/Footer'
+// import Footer from '../../common/Footer'
 import Headers from '../../common/Headers'
 import Sidebar from '../../common/Sidebar'
 import './css/home.css'
@@ -21,7 +21,7 @@ function Home() {
                                 <div>
                                     <div class="box-item active">
                                         <div class="box-container">
-                                            <h2 >Welcome to Notes Yard</h2>
+                                            <h2 >Welcome to Notebooks</h2>
                                             <p>Experience the beautifully simple note taking app on the web today.</p>
                                             <div className="d-flex">
                                             {localStorage.getItem('token')?

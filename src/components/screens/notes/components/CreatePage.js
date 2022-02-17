@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { toast } from 'react-toastify'
 import NotebookContext from '../../../../context/NotebookContext'
 import NoteContext from '../../../../context/NoteContext'

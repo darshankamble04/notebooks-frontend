@@ -2,14 +2,27 @@ import React, { useState, useContext, useRef } from 'react'
 import NotebookContext from '../../../../context/NotebookContext'
 import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
+// import ImageUploading from 'react-images-uploading';
 
 function CreateNotebook() {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { addNotebooks,setLoading } = Context;
-    const [notebookCover, setnotebookCover] = useState(Math.round(18 * Math.random()))
+    const { addNotebooks, setLoading } = Context;
+    const [notebookCover, setnotebookCover] = useState(notebookCoverUrl[Math.round(18 * Math.random())])
     const [notebookTitle, setnotebookTitle] = useState("")
     const [isEmpty, setIsEmpty] = useState(false)
+
+    // const [images, setImages] = useState([]);
+
+    // const maxNumber = 69;
+
+    // const onChange = (imageList, addUpdateIndex) => {
+    //     // data for submit
+    //     console.log(imageList);
+    //     console.log(addUpdateIndex)
+    //     setImages(imageList);
+    // };
+    // console.log(images.data_url)
 
     const submitNotebook = (e) => {
         e.preventDefault()
@@ -18,6 +31,7 @@ function CreateNotebook() {
         if (!notebookTitle.length == 0) {
             addNotebooks({ notebookTitle, notebookCover })
             setnotebookTitle('')
+            setnotebookCover(notebookCoverUrl[Math.round(18 * Math.random())])
             autoClick.current.click()
         } else {
             setIsEmpty(true)
@@ -43,10 +57,10 @@ function CreateNotebook() {
                 <div className="offcanvas-body">
                     <div className="mb-1 d-grid inputsN">
                         <form className="d-flex">
-                            <div className="coverImg selectedImg" style={{ background: `url(${notebookCoverUrl[`${notebookCover}`]})` }}></div>
+                            <div className="coverImg selectedImg" style={{ background: `url(${notebookCover})` }}></div>
                             <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
                                 <label className="form-label" id="notebookname">Notebook Name</label>
-                                <input value={notebookTitle} type="text" className="form-control" placeholder="Untitled" onChange={(e) => { setnotebookTitle(e.target.value) }} required />
+                                <input value={notebookTitle} type="text" className="form-control" placeholder="Untitled" onChange={(e) => { setnotebookTitle(e.target.value) }} required autoFocus />
                                 <div style={{ color: "red" }} className={`form-text ${isEmpty ? "visible" : "invisible"}`}>Notebook name cannot be blank </div>
                                 <button onClick={(e) => { submitNotebook(e) }} className="addNotebookbtn">Add Notebook</button>
                             </div>
@@ -55,10 +69,43 @@ function CreateNotebook() {
                     </div>
 
                     <div className="coverImgs">
-                        <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
-                    </div>
-                </div>
+                        {/* <ImageUploading
+                            multiple
+                            value={images}
+                            onChange={onChange}
+                            maxNumber={maxNumber}
+                            dataURLKey="data_url"
+                        >
+                            {({
+                                imageList,
+                                onImageUpload,
+                                onImageRemoveAll,
+                                onImageUpdate,
+                                onImageRemove,
+                                isDragging,
+                                dragProps
+                            }) => (
+                                <>
+
+                                    <button className='coverImg' style={isDragging ? { color: "red" } : null,{background:'white'}} onClick={onImageUpload} {...dragProps}> Click or Drop here </button>
+
+                                    &nbsp;
+
+                                    <button onClick={onImageRemoveAll}>Remove all images</button>
+
+                                    {imageList.map((image, index) => {
+                                        console.log(image)
+                                        return (
+                                            <div key = { index } className = {`coverImg ${notebookCover === image.data_url ? "addAfter" : ""}`} onClick = {()=>{setnotebookCover(image.data_url)}} style={{ background: `url(${image.data_url})` }}></div>     
+                                )})}
+
+                    </>
+                            )}
+                </ImageUploading> */}
+                <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
             </div>
+        </div>
+            </div >
         </>
     )
 }

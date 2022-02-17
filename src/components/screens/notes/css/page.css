@@ -12,11 +12,16 @@
     box-shadow: 3px 3px 3px 1px rgb(131 131 131);
 }
 
+.pageBody h6 {
+    max-height: 38px;
+    overflow: hidden;
+}
+
 .pageBody:hover {
-    text-shadow: 1px 0px 0px #000;
+    /* text-shadow: 0.3px 0px 0px #000; */
     filter: drop-shadow(2px 4px 6px rgb(114, 114, 114));
     z-index: 0;
-    transform: scale(1.1);
+    transform: scale(1.023);
 }
 
 .content {

@@ -8,15 +8,13 @@
     margin: 20px;
     cursor: pointer;
     border-radius: 0px 13px 13px 0px;
-    filter: drop-shadow(2px 4px 6px rgb(99, 99, 99));
-    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
 }
 
 .outlineC:hover {
-    transition: all 0.8s ease-out;
+    filter: drop-shadow(2px 4px 6px rgb(99, 99, 99));
+    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
+    transition: all 0.4s ease-out;
     transition-property: all;
-    filter: none;
-    box-shadow: none;
     bottom: 1.5px;
     /* opacity: 1; */
 }
@@ -64,7 +62,7 @@
 .coverImgs {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
-    margin: 0 2px 0 2px;
+    margin: 2px 2px 0 2px;
     /* z-index: unset; */
     /* padding: 0rem 0.3rem !important; */
     height: 60vh;
@@ -76,7 +74,7 @@
     position: absolute;
     width: 100%;
     /* bottom: 0; */
-    height: 37px;
+    height: 11px;
     box-shadow: inset -6px 7px 6px 0px white;
     z-index: 10;
 }
@@ -97,7 +95,7 @@
 .coverImg {
     width: 90%;
     height: 22vh;
-    margin: 5px 0 10px 0;
+    margin: 7px 0 10px 0;
     background: url(https://c0.wallpaperflare.com/preview/76/943/601/4k-wallpaper-architecture-background-black.jpg);
     background-size: cover !important;
     border-radius: 5px;
@@ -111,6 +109,23 @@
 .addAfter {
     border: 5px solid rgb(38 42 46) !important;
     filter: drop-shadow(2px 4px 6px black);
+    box-shadow: inset 0px 0px 20px 20px rgb(0 0 0 / 45%);
+}
+
+.addAfter::after {
+    content: "";
+    position: absolute;
+    width: 66px;
+    /* bottom: 0; */
+    height: 66px;
+    background: red;
+    background: url(../../../../assets/img/check-alt.svg);
+    background-size: 66px;
+    background-repeat: no-repeat;
+    /* margin: 33px 13px; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 

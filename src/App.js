@@ -18,7 +18,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContactUs from './components/screens/ContactUs';
 import AboutUs from './components/screens/AboutUs/AboutUs';
-import ErrorPage from './components/screens/ErrorPage';
+// import ErrorPage from './components/screens/ErrorPage';
 function App() {
   return (
     <>

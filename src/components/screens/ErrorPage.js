@@ -13,9 +13,9 @@ function ErrorPage() {
                 <div className="d-flex flex-column overflow-hidden">
                     <main className="mainContent d-flex flex-column">
                         <div id="wrapper">
-                            <img src="https://i.imgur.com/qIufhof.png" />
+                            <img src="https://i.imgur.com/qIufhof.png" alt='error' />
                             <div id="info">
-                                <h3>This page could not be found</h3>
+                                <h3>This page could not be found</h3> 
                             </div>
                         </div >
                     </main>

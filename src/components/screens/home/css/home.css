@@ -1,8 +1,8 @@
 .mainContent {
     width: calc(100vw - 161.18px);
-    height: 100%;
+    max-height: 100%;
     margin-left: 161.18px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden !important;
     position: relative;
     margin-top: 60px;

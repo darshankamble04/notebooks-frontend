@@ -7,8 +7,9 @@
     margin: 20px;
     cursor: pointer;
     border-radius: 14px 13px 21px 0px;
-    filter: drop-shadow(2px 4px 6px rgb(99, 99, 99));
-    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
+    transition: all 0.4s ease-out;
+    /* box-shadow: 3px 3px 3px 1px rgb(131 131 131);
+    filter: drop-shadow(2px 4px 6px rgb(99, 99, 99)); */
 }
 
 .outlineForPlaceholder {
@@ -39,23 +40,25 @@
         bottom: 0;
     }
     100% {
-        bottom: 3.5;
+        bottom: 2.5px;
     }
 }
 
 .outline:hover {
-    filter: none;
-    box-shadow: none;
-    animation: cardUp 350ms 1 forwards;
+    /* filter: none; */
+    filter: drop-shadow(2px 4px 6px rgb(99, 99, 99));
+    box-shadow: 3px 3px 3px 1px rgb(131 131 131);
+    /* box-shadow: none; */
+    animation: cardUp 0s 0.1s 1 forwards;
 }
 
 .outline .inline:hover {
     /* color: red !important; */
     filter: contrast(1.1);
-    box-shadow: inset -20px -3px 20px 5px #000000bd;
 }
 
 .outline .inline {
+    box-shadow: inset -20px -3px 20px 5px #000000bd;
     position: absolute;
     bottom: -1px;
     transition: box-shadow 300ms ease-in;

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
+import CoverImgs from '../../../common/Helper'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
 import NotebookContext from '../../../../context/NotebookContext'
@@ -8,7 +8,7 @@ import NoteContext from '../../../../context/NoteContext'
 function Notebook(props) {
     const autoClick = useRef(null)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,loading,setLoading} = Context;
+    const { updateNotebooks,deleteNotebooks,addbookmark,removebookmark, setEData ,setnotebookCover, notebookCover, notebookTitle, setnotebookTitle,id, setId,setLoading} = Context;
     const context = useContext (NoteContext)
     const {userNotes,getuserNotes} = context
     const [isEmpty, setIsEmpty] = useState(false)
@@ -53,7 +53,7 @@ function Notebook(props) {
         <>
             <Link onClick={()=>{toggleEdit(props.data)}} to={`/mynotebooks/${props.id}/${props.title}`} className="outline " >
                 <img className="spiral" src="https://cdn.classmateshop.co.in/live/Front-Assets/FrontEnd/SPIRAL.svg" alt="" />
-                <div className="inline" style={{ background: `url(${notebookCoverUrl[`${props.cover}`]})` }}>
+                <div className="inline" style={{ background: `url(${props.cover})` }}>
                     <div className="dots"></div>
                     <div className="NotebookName">
                         <div >{props.title}</div>
@@ -101,7 +101,7 @@ function Notebook(props) {
                     <div className="mb-1 d-grid inputsN">
                         <form className="d-flex">
                             
-                            <div className="coverImg selectedImg" style={{ background: `url(${notebookCoverUrl[`${notebookCover}`]})` }}></div>
+                            <div className="coverImg selectedImg" style={{ background: `url(${notebookCover})` }}></div>
 
                             <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
                                 <label className="form-label" id="notebookname">Notebook Name</label>

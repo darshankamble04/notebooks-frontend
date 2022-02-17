@@ -59,6 +59,12 @@
     left: 72px !important;
 }
 
+.searchNotebooks:focus {
+    /* box-shadow: inset 0px 0px 6px 0px rgb(245 245 245); */
+    background-color: #000000;
+    /* filter: drop-shadow(2px 4px 6px rgb(241, 241, 241)); */
+}
+
 .search-btn {
     /* position: absolute; */
     right: 12vw;

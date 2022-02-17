@@ -218,9 +218,10 @@ body {
     border: 1px solid rgb(226, 226, 226) !important;
 }
 
-.container .google button:hover {
-    /* opacity: 0.2 !important; */
-}
+
+/* .container .google button:hover {
+    opacity: 0.2 !important;
+} */
 
 
 /* .container .google a:hover {

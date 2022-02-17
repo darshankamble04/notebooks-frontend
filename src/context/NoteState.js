@@ -45,7 +45,6 @@ const { setLoading} = Context;
             let pathname = window.location.pathname;
         pathname = pathname.split('/')
         
-        console.log(pathname[2])
         const response = await fetch(`${webUrl}/api/notes/${pathname[2]}/fetchallnotes`, {
             method: 'GET',
             headers: {
@@ -71,7 +70,6 @@ const { setLoading} = Context;
             let pathname = window.location.pathname;
         pathname = pathname.split('/')
         let date = new Date()
-        console.log(date)
         // API
         await fetch(`${webUrl}/api/notes/${pathname[2]}/addnote`, {
             method: 'POST',
@@ -169,7 +167,6 @@ const { setLoading} = Context;
         });
         
     } catch (error) {
-        console.log(error)
     }
     }
     const [link, setLink] = useState('')

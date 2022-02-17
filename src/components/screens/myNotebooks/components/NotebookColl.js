@@ -6,7 +6,7 @@ import NotebookContext from '../../../../context/NotebookContext'
 function NotebookColl() {
     const Context = useContext(NotebookContext)
     const { notebooks, getNotebooks, SearchKey } = Context
-    console.log(SearchKey)
+    // console.log(SearchKey)
 
     useEffect(() => {
         getNotebooks()

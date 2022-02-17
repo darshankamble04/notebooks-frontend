@@ -83,6 +83,7 @@ function ContactUs() {
                     progress: undefined,
                     theme:'light'
                 });
+                setCredentials({title:'',description:''})
             }
             setLoading(false)
             

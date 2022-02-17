@@ -23,7 +23,7 @@ function Sidebar() {
                     <img style={{width:"70px",borderRadius:'50%'}} src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="" />
                     User
                 </label> */}
-                <Link to="/" onClick={console.log('clicked')} className={`sidebarLabel ${location.pathname === '/'? 'sidebarLabelSelected':''}`}>
+                <Link to="/"  className={`sidebarLabel ${location.pathname === '/'? 'sidebarLabelSelected':''}`}>
                     {/* <img src={HomeIcon} alt="" /> */}
                     <span class="mx-2 material-icons">home</span>
                     <span className="">Home</span>
