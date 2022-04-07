@@ -242,6 +242,7 @@
     .searchNotebooks {
         width: 255px !important;
         left: 50px !important;
+        padding-right: 7px;
     }
 }
 
