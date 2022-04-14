@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import NotebookCover from '../screens/myNotebooks/components/NotebookCover'
 
 export const notebookCoverUrl = [
@@ -25,8 +25,10 @@ export const notebookCoverUrl = [
 
 const CoverImgs = (props) => {
     const { setnotebookCover, notebookCover } = props
+    const [isImgUpoloaded, setIsImgUpoloaded] = useState(1)
+    const [imgUrl, SetImgUrl] = useState("")
     // value="" onKeyDown={()=>{return false}} 
-
+    const autoClick = useRef(null)
     // CODE FOOR IMG UPLOADER
     const imageForm = document.querySelector("#imageForm")
     const imageInput = document.querySelector("#imageInput")
@@ -50,6 +52,7 @@ const CoverImgs = (props) => {
 
         const imageUrl = url.split('?')[0]
         console.log(imageUrl)
+        SetImgUrl(imageUrl)
 
         // post requst to my server to store any extra data
 
@@ -63,31 +66,15 @@ const CoverImgs = (props) => {
 
     return (
         <>
-            <div data-bs-toggle="modal" data-bs-target="#imgUploaderModal"  className={`coverImg text-center imgUploderBox d-center`}>
-                <label style={{ paddingTop: "5px" }} className="c-pointer" >Custom cover</label>
+            <div className={`coverImg text-center imgUploderBox d-center`}>
+                <label onClick={()=>{autoClick.current.click()}} style={{ paddingTop: "5px" }} className="c-pointer" >Custom cover</label>
+
+                <input ref={autoClick} onChange={(e)=>{setIsImgUpoloaded(0);console.log(e)}} placeholder="img" style={{display:"none"}} id="imageInput" type="file" accept="image/*" />
+                
+                <button disabled={isImgUpoloaded} className='imgUploadBtn addNotebookbtn'>Upload</button>
             </div>
 
-                <div class="modal fade" id="imgUploaderModal" style={{cursorEvent:"none",zIndex:"1030"}} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" style={{zIndex:"1090"}}>
-                        <form class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="imageForm" className="text-center">
-                                    <input placeholder="img" id="imageInput"  type="file" accept="image/*" />
-                                    {/* <button onClick={(e) => { handelClick(e) }} type="submit">Upload</button> */}
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                                <button onClick={(e) => { handelClick(e) }} type="submit" class="btn btn-primary">Upload</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
+            <NotebookCover url={imgUrl} notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
 
             {
                 notebookCoverUrl.map((e) => {

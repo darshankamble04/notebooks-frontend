@@ -327,9 +327,24 @@
     cursor: pointer;
     outline: none;
     border: 1px solid rgb(121, 121, 121);
+    position: relative;
 }
 
 .imgUploderBox input {
     width: 80%;
     height: 40%;
+}
+
+.imgUploderBox .imgUploadBtn {
+    position: absolute;
+    width: 103%;
+    border-radius: 0;
+    height: 31px;
+    bottom: 0;
+    right: 0px;
+}
+
+.imgUploderBox .imgUploadBtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.25;
 }

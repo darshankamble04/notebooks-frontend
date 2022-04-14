@@ -30,17 +30,6 @@ function NotebookModal(props) {
         }
     }
 
-    // const submitNotebook = (e) => {
-    //     e.preventDefault()
-    //     setLoading(true)
-    //     // eslint-disable-next-line
-    //     if (!notebookTitle.length == 0) {
-    //         autoClick.current.click()
-    //     } else {
-    //         setIsEmpty(true)
-    //     }
-    // }
-
     return (
         <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id={props.action == "Edit" ? "offcanvasRight02" : "offcanvasRight"} aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
