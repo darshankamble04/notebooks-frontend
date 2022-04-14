@@ -69,42 +69,9 @@ function CreateNotebook() {
                     </div>
 
                     <div className="coverImgs">
-                        {/* <ImageUploading
-                            multiple
-                            value={images}
-                            onChange={onChange}
-                            maxNumber={maxNumber}
-                            dataURLKey="data_url"
-                        >
-                            {({
-                                imageList,
-                                onImageUpload,
-                                onImageRemoveAll,
-                                onImageUpdate,
-                                onImageRemove,
-                                isDragging,
-                                dragProps
-                            }) => (
-                                <>
-
-                                    <button className='coverImg' style={isDragging ? { color: "red" } : null,{background:'white'}} onClick={onImageUpload} {...dragProps}> Click or Drop here </button>
-
-                                    &nbsp;
-
-                                    <button onClick={onImageRemoveAll}>Remove all images</button>
-
-                                    {imageList.map((image, index) => {
-                                        console.log(image)
-                                        return (
-                                            <div key = { index } className = {`coverImg ${notebookCover === image.data_url ? "addAfter" : ""}`} onClick = {()=>{setnotebookCover(image.data_url)}} style={{ background: `url(${image.data_url})` }}></div>     
-                                )})}
-
-                    </>
-                            )}
-                </ImageUploading> */}
-                <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
-            </div>
-        </div>
+                        <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
+                    </div>
+                </div>
             </div >
         </>
     )

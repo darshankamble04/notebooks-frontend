@@ -13,3 +13,31 @@
                                 <use href="#wave-path" x="50" y="9" fill="#fff" style={{ userSelect: 'auto' }} >
                                 </use></g>
                         </svg> */}
+
+
+                        {/*  THESE ARE PLACE HOLDERS OF NOOKBOOOKS
+            <div className="d-flex bookArrange" >
+                    <div className="d-flex" style={{ width: "90%",height:'90vh', flexWrap: "wrap" }}>
+                        <div class="outlineForPlaceholder card-body">
+                            <p class="NotebookName card-text placeholder-glow">
+                                <span class="placeholder col-7"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-4"></span>
+                            </p>
+                        </div>
+                        <div class="outlineForPlaceholder card-body">
+                            <p class="NotebookName card-text placeholder-glow">
+                                <span class="placeholder col-7"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-4"></span>
+                            </p>
+                        </div>
+                        <div class="outlineForPlaceholder card-body">
+                            <p class="NotebookName card-text placeholder-glow">
+                                <span class="placeholder col-7"></span>
+                                <span class="placeholder col-4"></span>
+                                <span class="placeholder col-4"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div> */}

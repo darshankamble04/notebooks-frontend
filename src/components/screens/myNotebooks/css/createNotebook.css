@@ -295,3 +295,40 @@
     background-color: #262a2e;
     border-color: #212529;
 }
+
+
+/* IMG UPLOADER :; */
+
+
+/* 
+#imageForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+#imageForm>* {
+    margin: 5px 0;
+    box-sizing: border-box;
+} */
+
+.imgUploderBox {
+    background: none;
+    overflow: hidden;
+    /*  */
+    width: 90%;
+    height: 22vh;
+    margin: 7px 0 10px 0;
+    background-size: cover !important;
+    border-radius: 5px;
+    background-repeat: no-repeat !important;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid rgb(121, 121, 121);
+}
+
+.imgUploderBox input {
+    width: 80%;
+    height: 40%;
+}
