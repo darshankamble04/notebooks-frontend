@@ -18,7 +18,7 @@ function NotebookModal(props) {
                 updateNotebooks({ notebookTitle, notebookCover, id })
                 setnotebookTitle('')
             }
-            else {
+            else if (props.action === "Create") {
                 addNotebooks({ notebookTitle, notebookCover })
                 setnotebookTitle('')
                 setnotebookCover(notebookCoverUrl[Math.round(18 * Math.random())])
