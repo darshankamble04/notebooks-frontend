@@ -7,7 +7,7 @@ function NotebookModal(props) {
     const autoClick = useRef(null)
     const [isEmpty, setIsEmpty] = useState(false)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,addNotebooks } = Context;
+    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,addNotebooks,getNcus } = Context;
 
     const submitNotebook = (e) => {
         e.preventDefault()
@@ -54,7 +54,7 @@ function NotebookModal(props) {
                 </div>
 
                 <div className="coverImgs">
-                    <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
+                    <CoverImgs />
                 </div>
             </div>
         </div>

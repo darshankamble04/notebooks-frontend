@@ -6,12 +6,14 @@ import NotebookModal from './NotebookModal'
 // import ImageUploading from 'react-images-uploading';
 
 function CreateNotebook() {
+    const context = useContext(NotebookContext)
+    const {getNcus} = context
 
 
    
     return (
         <>
-            <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" className="outlineC ">
+            <div onClick={getNcus} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" className="outlineC ">
                 <img className="spiralC" src="https://cdn.classmateshop.co.in/live/Front-Assets/FrontEnd/SPIRAL.svg" alt="" />
                 <div className="dotsC"></div>
                 <div className="center d-flex flex-column">

@@ -232,6 +232,50 @@ const NotebookState = (props) => {
   const [addclasses, setAddclasses] = useState(false)
   const [SearchKey, setSearchKey] = useState('')
   
+  const initialUrls = []
+  const [ncus, setNcus] = useState(initialUrls)
+
+  const getNcus = async () => {
+    try {
+        //   setLoading(true)
+        const response = await fetch(`${process.env.REACT_APP_WebUrl}/api/auth/getncu`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem("token")
+            },
+        })
+        const json = await response.json()
+        setNcus(json.notebookcoverurl)
+        console.log(json)
+        //   setLoading(false)
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const addNcus = async (e) => {
+  try {
+      //   setLoading(true)
+      await fetch(`${process.env.REACT_APP_WebUrl}/api/auth/addncu`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+              "auth-token": localStorage.getItem("token")
+          },
+          body: JSON.stringify({ notebookcoverurl: e }),
+      })
+      getNcus();
+      //   const json = await response.json()
+      //   setNcus(json)
+      //   setLoading(false)
+
+  } catch (error) {
+      console.error(error)
+  }
+}
+
 
 
   // credentials, setCredentials,googleLogin, setGoogleLogin,isEmpty, setIsEmpty,countid, setId,loading, Setloading
@@ -239,7 +283,7 @@ const NotebookState = (props) => {
   //  esetdata, edata, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle
 
   return (
-    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey,bookmarkedNotebooks, setBookmarkedNotebooks}}>
+    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey,bookmarkedNotebooks, setBookmarkedNotebooks ,getNcus,addNcus ,ncus}}>
       {props.children}
     </NotebookContext.Provider>
   )

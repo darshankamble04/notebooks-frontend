@@ -8,7 +8,7 @@ import NotebookModal from './NotebookModal'
 
 function Notebook(props) {
     const Context = useContext(NotebookContext)
-    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading } = Context;
+    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,getNcus} = Context;
     const context = useContext(NoteContext)
     const { userNotes, getuserNotes } = context
     const [onClickLoader, setOnClickLoader] = useState(false)
@@ -63,7 +63,7 @@ function Notebook(props) {
                         <span className={`material-icons ${props.data.bookmark ? "bookmarked slowDown2" : "invisible"}`}>bookmark</span>
                     </div>
                     <Link to={`/${pathname[1]}`} className="menu d-flex flex-column position-absolute">
-                        <span onClick={() => { toggleEdit(props.data) }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="tooltip  material-icons" >edit
+                        <span onClick={() => { toggleEdit(props.data); getNcus() }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="tooltip  material-icons" >edit
                             <span class="tooltiptext">Edit</span>
                         </span>
 
@@ -78,7 +78,7 @@ function Notebook(props) {
                 </div>
             </Link>
             {/* Edit Notebook Modal */}
-            <NotebookModal action="Edit" />
+            <NotebookModal action="Edit" id={props.id} />
 
             {/* <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight02" aria-labelledby="offcanvasRightLabel">
                 <div className="offcanvas-header">
