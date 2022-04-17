@@ -7,7 +7,7 @@ function NotebookModal(props) {
     const autoClick = useRef(null)
     const [isEmpty, setIsEmpty] = useState(false)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,addNotebooks,getNcus } = Context;
+    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,addNotebooks,getNcus,setIsEditToggle } = Context;
 
     const submitNotebook = (e) => {
         e.preventDefault()
@@ -17,6 +17,7 @@ function NotebookModal(props) {
             if (props.action === "Edit") {
                 updateNotebooks({ notebookTitle, notebookCover, id })
                 setnotebookTitle('')
+                setIsEditToggle(0)
             }
             else if (props.action === "Create") {
                 addNotebooks({ notebookTitle, notebookCover })
@@ -41,13 +42,13 @@ function NotebookModal(props) {
                 <div className="mb-1 d-grid inputsN">
                     <form className="d-flex">
 
-                        <div className="coverImg selectedImg" style={{ background: `url(${notebookCover === undefined ? notebookCoverUrl[Math.round(18 * Math.random())] : notebookCover})` }}></div>
+                        <div className="coverImg selectedImg" style={{ background: `url(${notebookCover === undefined ? notebookCoverUrl[Math.round(12 * Math.random())] : notebookCover})` }}></div>
 
                         <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
                             <label className="form-label" id="notebookname">Notebook Name</label>
                             <input value={notebookTitle} type="text" className="form-control" placeholder="Untitled" onChange={(e) => { setnotebookTitle(e.target.value) }} required />
                             <div style={{ color: "red" }} className={`form-text ${isEmpty ? "visible" : "invisible"}`}>Notebook name cannot be blank </div>
-                            <button onClick={(e) => { submitNotebook(e, props.id) }} className="addNotebookbtn">Edit Notebook</button>
+                            <button onClick={(e) => { submitNotebook(e, props.id) }} className="addNotebookbtn">{props.action} Notebook</button>
                         </div>
                     </form>
                     <label className="form-label" style={{ width: 'max-content' }}>Notebook Cover</label>

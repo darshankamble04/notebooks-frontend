@@ -8,7 +8,7 @@ import NotebookModal from './NotebookModal'
 
 function Notebook(props) {
     const Context = useContext(NotebookContext)
-    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,getNcus} = Context;
+    const { isEditToggle, setIsEditToggle,updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,getNcus} = Context;
     const context = useContext(NoteContext)
     const { userNotes, getuserNotes } = context
     const [onClickLoader, setOnClickLoader] = useState(false)
@@ -63,7 +63,7 @@ function Notebook(props) {
                         <span className={`material-icons ${props.data.bookmark ? "bookmarked slowDown2" : "invisible"}`}>bookmark</span>
                     </div>
                     <Link to={`/${pathname[1]}`} className="menu d-flex flex-column position-absolute">
-                        <span onClick={() => { toggleEdit(props.data); getNcus() }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="tooltip  material-icons" >edit
+                        <span onClick={() => { toggleEdit(props.data); getNcus() }} onMouseOver={()=>{setIsEditToggle(1)}} data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight02" aria-controls="offcanvasRight" className="tooltip  material-icons" >edit
                             <span class="tooltiptext">Edit</span>
                         </span>
 
@@ -77,37 +77,11 @@ function Notebook(props) {
                     </Link>
                 </div>
             </Link>
-            {/* Edit Notebook Modal */}
-            <NotebookModal action="Edit" id={props.id} />
+            {/* Edit Notebook Modal */}    
 
-            {/* <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight02" aria-labelledby="offcanvasRightLabel">
-                <div className="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Edit Notebook</h5>
+            {isEditToggle===1 && <NotebookModal action="Edit" id={props.id} />}
+            
 
-                    <span ref={autoClick} type="button" className="material-icons closeBtn" data-bs-dismiss="offcanvas" aria-label="Close">close</span>
-                </div>
-                <div className="offcanvas-body">
-                    <div className="mb-1 d-grid inputsN">
-                        <form className="d-flex">
-
-                            <div className="coverImg selectedImg" style={{ background: `url(${notebookCover})` }}></div>
-
-                            <div className="d-flex flex-column" style={{ padding: "0 0 0 28px" }}>
-                                <label className="form-label" id="notebookname">Notebook Name</label>
-                                <input value={notebookTitle} type="text" className="form-control" placeholder="Untitled" onChange={(e) => { setnotebookTitle(e.target.value) }} required />
-                                <div style={{ color: "red" }} className={`form-text ${isEmpty ? "visible" : "invisible"}`}>Notebook name cannot be blank </div>
-                                <button onClick={(e) => { submitNotebook(e, props.id) }} className="addNotebookbtn">Edit Notebook</button>
-                            </div>
-                        </form>
-                        <label className="form-label" style={{ width: 'max-content' }}>Notebook Cover</label>
-                    </div>
-
-                    <div className="coverImgs">
-                        <CoverImgs notebookCover={notebookCover} setnotebookCover={setnotebookCover} />
-                    </div>
-                </div>
-            </div> */}
-            {/* <EditNotebook task="Edit" /> */}
         </>
     )
 }

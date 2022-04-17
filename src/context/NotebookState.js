@@ -248,6 +248,7 @@ const NotebookState = (props) => {
         const json = await response.json()
         setNcus(json.notebookcoverurl)
         console.log(json)
+        setnotebookCover(json.notebookcoverurl[0])
         //   setLoading(false)
 
     } catch (error) {
@@ -275,6 +276,7 @@ const addNcus = async (e) => {
       console.error(error)
   }
 }
+const [isEditToggle, setIsEditToggle] = useState(0)
 
 
 
@@ -283,7 +285,7 @@ const addNcus = async (e) => {
   //  esetdata, edata, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle
 
   return (
-    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey,bookmarkedNotebooks, setBookmarkedNotebooks ,getNcus,addNcus ,ncus}}>
+    <NotebookContext.Provider value={{ notebooks, setNotebooks, getNotebooks, addNotebooks, updateNotebooks, eData, setEData, deleteNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, addbookmark, removebookmark, getBookmarkedNotebooks, loading, setLoading, credentials, setCredentials,addclasses, setAddclasses ,SearchKey, setSearchKey,bookmarkedNotebooks, setBookmarkedNotebooks ,getNcus,addNcus ,ncus,isEditToggle, setIsEditToggle}}>
       {props.children}
     </NotebookContext.Provider>
   )

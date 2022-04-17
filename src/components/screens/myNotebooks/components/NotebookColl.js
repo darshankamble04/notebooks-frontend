@@ -32,7 +32,7 @@ function NotebookColl() {
                     }
 
                     {
-                        SearchKey === "" ? <CreateNotebook /> : ""
+                        SearchKey === "" ? <CreateNotebook  /> : ""
                     }
                     {
                         SearchKey !== "" && outline === 0 ? <h4 className="notFound">Notebook not found</h4> : ""
