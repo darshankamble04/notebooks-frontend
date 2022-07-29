@@ -34,7 +34,6 @@ Let's Try ->
   - react-bootstrap
   - validator
 <br>
-<br>
 <b>Styling</b>: CSS and BootStrap
 <br>
 <b>Database</b>: MongoDB
