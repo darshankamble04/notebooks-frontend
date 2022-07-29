@@ -16,9 +16,7 @@ Backend Code -> [https://github.com/darshankamble04/notebooks-backend](https://g
 Deployed URL -> [https://notebooks-darshankamble.herokuapp.com/](https://notebooks-darshankamble.herokuapp.com/)
 <br>
 Let's Try ->
-            Email Id : test99@gmail.com 
-            <br>
-&nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;              Pass : Test99
+            Email Id : test99@gmail.com , Pass : Test99
 <br>
 
 
