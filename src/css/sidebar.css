@@ -40,6 +40,11 @@
     background-color: rgba(255, 255, 255, 0.022);
 }
 
+.dk99{
+    width:max-content;
+    margin-left:0.8rem;
+}
+
 .sidebarLabel:hover {
     background-color: rgba(255, 255, 255, 0.072);
     color: #fff;
