@@ -144,21 +144,7 @@ function ContactUs() {
                             <div className="input-box button">
                                 <input onClick={(e) => { toggleSubmit(e) }} type="submit" name="" value="Submit" />
                             </div>
-                            <div className="option">or</div>
-                            <div className="google">
-                                {/* <GoogleLogin
-                                    onClick={setGoogleLogin(true)}
-                                    clientId="73289997498-ldv2fbop9ck81a1renoih54hbqejpii7.apps.googleusercontent.com"
-                                    buttonText="Login"
-                                    onSuccess={responseGoogle}
-                                    onFailure={responseGoogle2}
-                                    cookiePolicy={'single_host_origin'}
-                                    isSignedIn={true}
-                                >
-                                    <Link to="#">Register With Google</Link>
-                                </GoogleLogin> */}
-                                {/* document.getElementById('googleButton') */}
-                            </div>
+                            
                         </div>
                     </form>
                             </div>
