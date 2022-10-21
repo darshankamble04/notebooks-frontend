@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import NotebookContext from '../../../../context/NotebookContext';
 import CoverImgs, { notebookCoverUrl } from '../../../common/Helper';
 
@@ -7,7 +7,7 @@ function NotebookModal(props) {
     const autoClick = useRef(null)
     const [isEmpty, setIsEmpty] = useState(false)
     const Context = useContext(NotebookContext)
-    const { updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,addNotebooks,getNcus,setIsEditToggle } = Context;
+    const { updateNotebooks, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setLoading ,addNotebooks,setIsEditToggle } = Context;
 
     const submitNotebook = (e) => {
         e.preventDefault()
@@ -32,7 +32,7 @@ function NotebookModal(props) {
     }
 
     return (
-        <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id={props.action == "Edit" ? "offcanvasRight02" : "offcanvasRight"} aria-labelledby="offcanvasRightLabel">
+        <div class="canvasC offcanvas offcanvas-end" tabindex="-1" id={props.action === "Edit" ? "offcanvasRight02" : "offcanvasRight"} aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
                 <h5 id="offcanvasRightLabel">{props.action} Notebook</h5>
 

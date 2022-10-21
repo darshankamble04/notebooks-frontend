@@ -19,7 +19,7 @@ function NotebookColl() {
             <div className="d-flex bookArrange" >
                 <div id="bookArrange" className="d-flex w-90" style={{ flexWrap: "wrap" }}>
                     {// eslint-disable-next-line
-                        notebooks !== undefined && notebooks.map((e) => {
+                        notebooks && notebooks?.map((e) => {
                             if (SearchKey !== "") {
                                 const title = e.notebookTitle.toLowerCase()
                                 if (title.includes(SearchKey)) {

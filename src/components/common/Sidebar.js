@@ -1,12 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import '../../css/sidebar.css'
-// import HomeIcon from '../../assets/img/homeIcon.png'
-import notebookIcon from '../../assets/img/notebookIcon.png'
-import notesIcon from '../../assets/img/notesIcon.png'
-// import logoutIcon from '../../assets/img/logoutIcon.png'
 import { Link,useLocation } from 'react-router-dom'
 import NotebookContext from '../../context/NotebookContext'
-// import logoutIcon from '../../assets/img/icons8_Logout.ico'
 
 function Sidebar() {
     const location = useLocation(null)

@@ -1,5 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from 'react'
-import CoverImgs from '../../../common/Helper'
+import React, { useState, useContext, useEffect } from 'react'
 import '../css/createNotebook.css'
 import { Link } from 'react-router-dom'
 import NotebookContext from '../../../../context/NotebookContext'
@@ -8,7 +7,7 @@ import NotebookModal from './NotebookModal'
 
 function Notebook(props) {
     const Context = useContext(NotebookContext)
-    const { isEditToggle, setIsEditToggle,updateNotebooks, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, notebookCover, notebookTitle, setnotebookTitle, id, setId, setLoading ,getNcus} = Context;
+    const { isEditToggle, setIsEditToggle, deleteNotebooks, addbookmark, removebookmark, setEData, setnotebookCover, setnotebookTitle, setId, setLoading ,getNcus} = Context;
     const context = useContext(NoteContext)
     const { userNotes, getuserNotes } = context
     const [onClickLoader, setOnClickLoader] = useState(false)

@@ -1,6 +1,5 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import NotebookContext from '../../../../context/NotebookContext'
-import CoverImgs, { notebookCoverUrl } from '../../../common/Helper'
 import '../css/createNotebook.css'
 import NotebookModal from './NotebookModal'
 // import ImageUploading from 'react-images-uploading';

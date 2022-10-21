@@ -4,7 +4,7 @@ import NotebookCover from './NotebookCover';
 
 function CoverUploader(props) {
     const Context = useContext(NotebookContext)
-    const { setnotebookCover, notebookCover, ncus, setNcus, getNcus, addNcus, setIsEditToggle } = Context;
+    const { setnotebookCover, notebookCover, ncus,addNcus } = Context;
 
     const [isImgUpoloaded, setIsImgUpoloaded] = useState(1)
     const [imgUrl, SetImgUrl] = useState("")
@@ -16,7 +16,6 @@ function CoverUploader(props) {
     const autoClick = useRef(null)
 
     // CODE FOOR IMG UPLOADER
-    const imageForm = document.querySelector("#imageForm")
     const imageInput = document.querySelector("#imageInput")
 
     const handelClick = async (event) => {

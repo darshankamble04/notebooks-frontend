@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import NotebookContext from '../../context/NotebookContext'
+import React from 'react'
 import CoverUploader from '../screens/myNotebooks/components/CoverUploader'
 import NotebookCover from '../screens/myNotebooks/components/NotebookCover'
 
@@ -22,10 +21,6 @@ export const notebookCoverUrl = [
 
 
 const CoverImgs = (props) => {
-    const Context = useContext(NotebookContext)
-    const { setnotebookCover, notebookCover } = Context;
-    
-
 
     return (
         <>
