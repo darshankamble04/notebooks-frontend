@@ -13,7 +13,7 @@ Frontend Code -> [https://github.com/darshankamble04/notebooks-frontend](https:/
 <br>
 Backend Code -> [https://github.com/darshankamble04/notebooks-backend](https://github.com/darshankamble04/notebooks-backend)
 <br>
-Deployed URL -> [https://enotebooks-darshankamble.herokuapp.com/](https://enotebooks-darshankamble.herokuapp.com/)
+Deployed URL -> [https://notebooks-darshankamble.onrender.com/](https://notebooks-darshankamble.onrender.com/)
 <br>
 Let's Try ->
             Email Id : test99@gmail.com , Pass : Test99
