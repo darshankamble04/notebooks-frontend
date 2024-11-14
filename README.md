@@ -15,8 +15,7 @@ Backend Code -> [https://github.com/darshankamble04/notebooks-backend](https://g
 <br>
 Deployed URL -> [https://notebooks-darshankamble.onrender.com/](https://notebooks-darshankamble.onrender.com/)
 <br>
-Let's Try ->
-            Email Id : test99@gmail.com , Pass : Test99
+
 <br>
 
 
